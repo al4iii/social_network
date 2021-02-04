@@ -1,0 +1,21 @@
+.myself {
+  display: grid;
+  grid-template-columns: 230px 500px;
+  grid-template-rows: 200px;
+  grid-template-areas: "img Profile";
+}
+
+.img img {
+  margin: 0 0 0 30px;
+  width: 200px;
+  grid-area: img;
+}
+
+.profile {
+  grid-area: Profile;
+}
+
+.item {
+  margin: 15px;
+  color: #4550f0;
+}

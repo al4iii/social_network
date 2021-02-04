@@ -1,0 +1,30 @@
+.content {
+  grid-area: content;
+  background-color: #dbe9fd;
+  margin: 0 auto;
+}
+
+.content img {
+  width: 990px;  
+  margin-bottom: 20px;
+}
+
+.item {
+  color: rgb(0, 37, 138);
+  margin: 30px;
+  margin-left: 100px;
+}
+
+.posts {
+  color: #4550f0;
+  margin-left: 30px;
+}
+
+.textarea {
+  margin-left: 30px;
+}
+
+.input {
+  margin-left: 550px;
+  margin-top: 15px;
+}
