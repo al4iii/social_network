@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Profile from "./compotents/Profile/Profile";
+import Profile from "./compotents/Profile/ProfileFoto";
 import Header from "./compotents/Header/Header";
 import Nav from "./compotents/Navbar/Navbar";
 import Dialogs from "./compotents/Dialogs/Dialogs";

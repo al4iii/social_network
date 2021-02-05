@@ -2,34 +2,35 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./Dialogs.module.css";
 
+let path = `"/dialogs/" + props.id`;
+
+const Dialog = (props) => {
+  return (
+    <div className={s.dialog + " " + s.active}>
+      <NavLink to={path}>{props.name}</NavLink>
+    </div>
+  );
+};
+
+const Maseege = (props) => {
+  return <div className={s.maseege}>{props.maseege}</div>;
+};
+
 const Dialogs = (props) => {
   return (
     <div>
       <div className={s.dialogs}>
         <div className={s.dialogsItems}>
-          <div className={s.dialog + " " + s.active}>
-            <NavLink to="/dialogs/1">Dimych</NavLink>
-          </div>
-          <div className={s.dialog}>
-            <NavLink to="/dialogs/2">Alex</NavLink>
-          </div>
-          <div className={s.dialog}>
-            <NavLink to="/dialogs/3">Volya</NavLink>
-          </div>
-          <div className={s.dialog}>
-            <NavLink to="/dialogs/4">Honor</NavLink>
-          </div>
-          <div className={s.dialog}>
-            <NavLink to="/dialogs/5">Alina</NavLink>
-          </div>
-          <div className={s.dialog}>
-            <NavLink to="/dialogs/6">Zora</NavLink>
-          </div>
+          <Dialog name="Dimych" id="1" />
+          <Dialog name="Alex" id="2" />
+          <Dialog name="Alina" id="3" />
+          <Dialog name="Zora" id="3" />
+          <Dialog name="Kon'" id="3" />
         </div>
         <div className={s.maseeges}>
-          <div className={s.maseege}> hi</div>
-          <div className={s.maseege}> how are you?</div>
-          <div className={s.maseege}> yo</div>
+          <Maseege maseege="Hi?" />
+          <Maseege maseege="How are you?" />
+          <Maseege maseege="Have a goog day!!" />
         </div>
       </div>
     </div>
