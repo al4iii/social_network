@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import s from "./Myself.module.css";
 
 const Myself = (props) => {
@@ -12,7 +13,7 @@ const Myself = (props) => {
       <div className={s.item}>Date of Birth {props.dob}</div>
       <div className={s.item}>City {props.city}</div>
       <div className={s.item}>Education {props.education}</div>
-      <div className={s.item}>Web site <a href="{props.webSite}">instagram</a></div>     
+      <div className={s.item}>Web site <NavLink to="{props.webSite}">instagram</NavLink></div>     
     </div>
     </div>
 );

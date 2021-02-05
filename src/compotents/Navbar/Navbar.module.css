@@ -1,18 +1,26 @@
 .nav {
   grid-area: nav;
   background-color: #89dfeb;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .item {
   margin: 10px;
-  color: rgb(0, 87, 94);
 }
 
-.item.active {
-  color: rgb(236, 5, 5);
+.item a {
+  margin: 10px;
+  color: rgb(57, 110, 114);
+  text-decoration: none;
 }
 
 .item.setting {
   margin: 40px 10px;
+}
+
+.item a.activeLink {
+  margin: 10px;
+  color: rgb(19, 74, 78);
+  font-size: 20px;
+  font-weight: bold;
 }
