@@ -12,7 +12,7 @@ const Myself = (props) => {
       <div className={s.item}>Date of Birth {props.dob}</div>
       <div className={s.item}>City {props.city}</div>
       <div className={s.item}>Education {props.education}</div>
-      <div className={s.item}>Web site {props.webSite}</div>     
+      <div className={s.item}>Web site <a href="{props.webSite}">instagram</a></div>     
     </div>
     </div>
 );

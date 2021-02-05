@@ -10,3 +10,9 @@
   grid-gap: 10px;
   font-family: 'Roboto', sans-serif;
 }
+
+.app-wrapper-content{
+  grid-area: content;
+  background-color: #dbe9fd;
+  margin: 0 auto;
+}
