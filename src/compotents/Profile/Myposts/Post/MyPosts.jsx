@@ -3,6 +3,13 @@ import s from "./MyPosts.module.css";
 import Post from "./Post";
 
 const MyPosts = () => {
+  let postsData =[
+    { id: 1, maseege: "hi, how are you?", likesCount: 15 },
+    { id: 2, maseege: "it's my first post!!", likesCount: 101 },
+    { id: 3, maseege: "Have a goog day!!", likesCount: 17 },
+    { id: 4, maseege: "Yo", likesCount: 13},
+    { id: 5, maseege: "Yo",likesCount: 104},
+  ]
   return (
     <div>
       <div className={s.posts}>
@@ -14,8 +21,11 @@ const MyPosts = () => {
       <div className={s.input}>
         <input type="submit" value="add post"></input>
       </div>
-      <Post message="hi, how are you?" like="15" />
-      <Post message="it's my first post!!" like="100" />
+      <Post message={postsData[0].maseege} likesCount={postsData[0].likesCount} />
+      <Post message={postsData[3].maseege} likesCount={postsData[3].likesCount} />
+      <Post message={postsData[1].maseege} likesCount={postsData[1].likesCount} />
+      <Post message={postsData[2].maseege} likesCount={postsData[2].likesCount} />
+      <Post message={postsData[4].maseege} likesCount={postsData[4].likesCount} />
     </div>
   );
 };

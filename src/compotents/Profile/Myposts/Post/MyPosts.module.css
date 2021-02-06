@@ -2,6 +2,7 @@
   grid-area: content;
   background-color: #dbe9fd;
   margin: 0 auto;
+  padding-left: 100px;
 }
 
 .content img {
@@ -12,15 +13,15 @@
 
 .posts {
   color: #4550f0;
-  margin-left: 30px;
+  margin-left: 100px;
 }
 
 .textarea {
-  margin-left: 30px;
+  margin-left: 100px;
 }
 
 .input {
-  margin-left: 550px;
-  margin-top: 15px;
+  margin-left: 630px;
+  margin-top: 20px;
 }
 

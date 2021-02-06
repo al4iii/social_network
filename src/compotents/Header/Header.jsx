@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className={s.header}>
       <img src="https://www.pngarts.com/files/3/Logo-PNG-Download-Image.png" />
-      <h1 className={s.h1}>MyNetwork</h1>
+      <h1 className={s.h1}>ENcounter</h1>
     </header>
   );
 };
