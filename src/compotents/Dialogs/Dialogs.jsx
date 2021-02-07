@@ -17,36 +17,32 @@ const Maseege = (props) => {
 };
 
 const Dialogs = (props) => {
-  let dialogData = [
+  let dialog = [
     { id: 1, name: "Dimych" },
     { id: 2, name: "Alex" },
     { id: 3, name: "Alina" },
     { id: 4, name: "Zora" },
     { id: 5, name: "Kon'" },
   ];
-  
-  let maseegesData =[
+  let maseeges = [
     { id: 1, maseege: "Hi?" },
     { id: 2, maseege: "How are you?" },
     { id: 3, maseege: "Have a goog day!!" },
     { id: 4, maseege: "Yo" },
     { id: 5, maseege: "Yo" },
-  ]
+  ];
+
+  let dialogElements = dialog.map((d) => (<Dialog name={d.name} id={d.id} /> ));
+  let maseegesElements = maseeges.map((m) => (<Maseege maseege={m.maseege} /> ));
 
   return (
     <div>
       <div className={s.dialogs}>
         <div className={s.dialogsItems}>
-          <Dialog name={dialogData[0].name} id={dialogData[0].id} />
-          <Dialog name={dialogData[1].name} id={dialogData[1].id} />
-          <Dialog name={dialogData[2].name} id={dialogData[2].id} />
-          <Dialog name={dialogData[3].name} id={dialogData[3].id} />
-          <Dialog name={dialogData[4].name} id={dialogData[4].id} />
+          {dialogElements}
         </div>
         <div className={s.maseeges}>
-          <Maseege maseege={maseegesData[0].maseege} />
-          <Maseege maseege={maseegesData[1].maseege} />
-          <Maseege maseege={maseegesData[4].maseege} />
+          {maseegesElements}
         </div>
       </div>
     </div>

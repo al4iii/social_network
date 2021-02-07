@@ -1,6 +1,6 @@
 .nav {
   grid-area: nav;
-  background-color: #89dfeb;
+  background-color: #2a7c15;
   font-family: "Roboto", sans-serif;
 }
 
@@ -10,7 +10,7 @@
 
 .item a {
   margin: 10px;
-  color: rgb(57, 110, 114);
+  color: rgb(2, 54, 11);
   text-decoration: none;
 }
 

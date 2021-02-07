@@ -1,6 +1,6 @@
 .content {
   grid-area: content;
-  background-color: #dbe9fd;
+  background-color: #2a7c15;
   margin: 0 auto;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .item {
-  color: rgb(0, 37, 138);
+  color: rgb(12, 75, 6);
   margin: 30px;
   margin-left: 100px;
 }
