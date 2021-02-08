@@ -9,11 +9,11 @@ const Myself = (props) => {
         <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/1e94b089-414e-4ee9-a40a-2f05a8957568/220x330" />
       </div>
       <div className={s.profile}>
-        <div className={s.item}>Name {props.name}</div>
-        <div className={s.item}>Date of Birth {props.dob}</div>
-        <div className={s.item}>City {props.city}</div>
-        <div className={s.item}>Education {props.education}</div>
-        <div className={s.item}>Web site <NavLink to="{props.webSite}">instagram</NavLink></div>
+        <div className={s.item}>Name {props.date.name}</div>
+        <div className={s.item}>Date of Birth {props.date.dob}</div>
+        <div className={s.item}>City {props.date.city}</div>
+        <div className={s.item}>Education {props.date.education}</div>
+        <div className={s.item}>Web site <NavLink to="{props.date.webSite}">instagram</NavLink></div>
       </div>
     </div>
   );
