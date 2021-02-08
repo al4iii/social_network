@@ -7,8 +7,9 @@ import Dialogs from "./compotents/Dialogs/Dialogs";
 import News from "./compotents/News/News";
 import Music from "./compotents/Music/Music";
 import Setting from "./compotents/Setting/Setting";
-
+import Friends from "./compotents/Friends/Friends";
 import { BrowserRouter, Route } from "react-router-dom";
+
 
 const App = (props) => {
   return (
@@ -17,11 +18,20 @@ const App = (props) => {
         <Header />
         <Nav />
         <div className="app-wrapper-content">
-          <Route exact path="/profile" render={() => <Profile posts={props.posts} date ={props.date}/>} />
-          <Route exact path="/messeges" render={() => <Dialogs dialog={props.dialog} maseeges={props.maseeges}/>} />
+          <Route
+            exact
+            path="/dialogs"
+            render={() => <Dialogs state={props.state.dialogsPafe} />}
+          />
+          <Route
+            exact
+            path="/profile"
+            render={() => <Profile state={props.state.prolifePage} />}
+          />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/setting" render={() => <Setting />} />
+          <Route path="/friends" render={() => <Friends />} />
         </div>
       </div>
     </BrowserRouter>

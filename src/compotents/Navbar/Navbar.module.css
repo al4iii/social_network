@@ -3,7 +3,10 @@
   background-color: #2a7c15;
   font-family: "Roboto", sans-serif;
 }
-
+.item img {
+  padding: 7px;
+  width: 40px;
+}
 .item {
   margin: 10px;
 }
