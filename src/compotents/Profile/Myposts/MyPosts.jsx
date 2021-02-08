@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import s from "./MyPosts.module.css";
-import Post from "./Post";
+import Post from "./Post/Post";
 
 const MyPosts = () => {
   let posts = [
@@ -11,7 +11,7 @@ const MyPosts = () => {
     { id: 5, maseege: "Yo", likesCount: 104 },
   ];
 
-  let postsElement = posts.map((p) => (<Post message={p.maseege} likesCount={p.likesCount} />));
+  let postsElement = posts.map(p => <Post message={p.maseege} likesCount={p.likesCount} />);
 
   return (
     <div>

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import s from "./Profile.module.css";
 import "./Profile.module.css";
 import Myself from "./MySelf/Myself";
-import MyPosts from "./Myposts/Post/MyPosts";
+import MyPosts from "./Myposts/MyPosts";
 import ProfileFoto from "./ProfileFoto/ProfileFoto";
 
 const Profile = () => {

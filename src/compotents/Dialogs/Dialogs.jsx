@@ -1,20 +1,8 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
+import Maseege from "./Massege/Massege";
 
-let path = `"/dialogs/" + props.id`;
-
-const Dialog = (props) => {
-  return (
-    <div className={s.dialog + " " + s.active}>
-      <NavLink to={path}>{props.name}</NavLink>
-    </div>
-  );
-};
-
-const Maseege = (props) => {
-  return <div className={s.maseege}>{props.maseege}</div>;
-};
 
 const Dialogs = (props) => {
   let dialog = [
@@ -32,18 +20,14 @@ const Dialogs = (props) => {
     { id: 5, maseege: "Yo" },
   ];
 
-  let dialogElements = dialog.map((d) => (<Dialog name={d.name} id={d.id} /> ));
-  let maseegesElements = maseeges.map((m) => (<Maseege maseege={m.maseege} /> ));
+  let dialogElements = dialog.map((d) => (<DialogItem name={d.name} id={d.id} />));
+  let maseegesElements = maseeges.map((m) => <Maseege maseege={m.maseege} />);
 
   return (
     <div>
       <div className={s.dialogs}>
-        <div className={s.dialogsItems}>
-          {dialogElements}
-        </div>
-        <div className={s.maseeges}>
-          {maseegesElements}
-        </div>
+        <div className={s.dialogsItems}>{dialogElements}</div>
+        <div className={s.maseeges}>{maseegesElements}</div>
       </div>
     </div>
   );
