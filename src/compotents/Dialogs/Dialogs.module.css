@@ -22,3 +22,10 @@
 .maseege {
   padding: 10px;
 }
+.textarea {
+  padding: 25px;
+}
+.input {
+  padding-left: 10px;
+  padding-top: 40px;
+}

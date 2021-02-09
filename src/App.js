@@ -26,10 +26,6 @@ const App = (props) => {
           path="/profile"
           render={() => <Profile state={props.state.prolifePage} />}
         />
-        <Route
-          path="/"
-          render={() => <Profile state={props.state.prolifePage} />}
-        />
         <Route path="/news" render={() => <News />} />
         <Route path="/music" render={() => <Music />} />
         <Route path="/setting" render={() => <Setting />} />
