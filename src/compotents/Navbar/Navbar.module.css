@@ -4,8 +4,12 @@
   font-family: "Roboto", sans-serif;
 }
 .item img {
-  padding: 7px;
+  padding: 5px;
+  margin-top: 20px;
   width: 40px;
+  height: 40px;
+  background-color: #2a7c15;
+  border-radius: 25px;
 }
 .item {
   margin: 10px;
@@ -26,4 +30,10 @@
   color: rgb(19, 74, 78);
   font-size: 20px;
   font-weight: bold;
+}
+
+span {
+  padding: 10px;
+  font-size: 19px;
+  color: rgb(24, 8, 26);
 }

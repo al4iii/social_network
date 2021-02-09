@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import s from "./Post.module.css";
 
 const Post = (props) => {
+  console.log(props)
   return (
     <div>
       <div className={s.item}>
-        <img src="https://cdnimg.rg.ru/img/content/182/70/51/2020-02-09T235935Z_1762655872_HP1EG291UNB9F_RTRMADP_3_AWARDS-OSCARS_t_650x433.jpg" />
+        <img src={props.avatarforo} />
         {props.message}
-        <div><span>like  </span>{props.likesCount}</div>
+        <div><span>like </span>{props.likesCount}</div>
       </div>
     </div>
   );

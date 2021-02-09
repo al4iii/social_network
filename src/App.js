@@ -16,12 +16,13 @@ const App = (props) => {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Nav />
+        <Nav state={props.state.navbarPage}
+        />
         <div className="app-wrapper-content">
           <Route
             exact
             path="/dialogs"
-            render={() => <Dialogs state={props.state.dialogsPafe} />}
+            render={() => <Dialogs state={props.state.dialogsPage} />}
           />
           <Route
             exact

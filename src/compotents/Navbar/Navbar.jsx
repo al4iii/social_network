@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import Avatar from "./Avatar/Avarar";
 import s from "./Navbar.module.css";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  console.log(props.state.avatar);
+  let friendsElement = props.state.avatar.map(p => <Avatar name={p.name} avatarforo={p.avatarforo}/>);
+  console.log(friendsElement);
   return (
     <nav className={s.nav}>
       <div className={`${s.item} ${s.active}`}>
@@ -33,11 +37,9 @@ const Navbar = () => {
       <div className={`${s.item} ${s.setting}`}>
         <NavLink to="/friends" activeClassName={s.activeLink}>
           Friends
-          <div>
-            <img src="https://c0.klipartz.com/pngpicture/986/173/gratis-png-circulo-circulo-thumbnail.png" />
-            <img src="https://c0.klipartz.com/pngpicture/986/173/gratis-png-circulo-circulo-thumbnail.png" />
-            <img src="https://c0.klipartz.com/pngpicture/986/173/gratis-png-circulo-circulo-thumbnail.png" />
-            </div>
+          <div className={s.item}>           
+            {friendsElement}
+          </div>
         </NavLink>
       </div>
     </nav>
