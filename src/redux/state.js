@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let state = {
   prolifePage: {
     posts: [
@@ -83,12 +85,15 @@ let state = {
 };
 
 export let addPost = (postMassege) => {
-  debugger;
+  
   let newPost = {
     id: 5,
     maseege: postMassege,
-    likesCount: 0,
+    likesCount: 1,
+    avatarforo:
+      "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
   };
   state.prolifePage.posts.push(newPost);
+  rerenderEntireTree(state);
 };
 export default state;
