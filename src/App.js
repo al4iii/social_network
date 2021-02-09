@@ -10,32 +10,32 @@ import Setting from "./compotents/Setting/Setting";
 import Friends from "./compotents/Friends/Friends";
 import { BrowserRouter, Route } from "react-router-dom";
 
-
 const App = (props) => {
   return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <Header />
-        <Nav state={props.state.navbarPage}
+    <div className="app-wrapper">
+      <Header />
+      <Nav state={props.state.navbarPage} />
+      <div className="app-wrapper-content">
+        <Route
+          exact
+          path="/dialogs"
+          render={() => <Dialogs state={props.state.dialogsPage} />}
         />
-        <div className="app-wrapper-content">
-          <Route
-            exact
-            path="/dialogs"
-            render={() => <Dialogs state={props.state.dialogsPage} />}
-          />
-          <Route
-            exact
-            path="/profile"
-            render={() => <Profile state={props.state.prolifePage} />}
-          />
-          <Route path="/news" render={() => <News />} />
-          <Route path="/music" render={() => <Music />} />
-          <Route path="/setting" render={() => <Setting />} />
-          <Route path="/friends" render={() => <Friends />} />
-        </div>
+        <Route
+          exact
+          path="/profile"
+          render={() => <Profile state={props.state.prolifePage} />}
+        />
+        <Route
+          path="/"
+          render={() => <Profile state={props.state.prolifePage} />}
+        />
+        <Route path="/news" render={() => <News />} />
+        <Route path="/music" render={() => <Music />} />
+        <Route path="/setting" render={() => <Setting />} />
+        <Route path="/friends" render={() => <Friends />} />
       </div>
-    </BrowserRouter>
+    </div>
   );
 };
 
