@@ -82,4 +82,13 @@ let state = {
   },
 };
 
+export let addPost = (postMassege) => {
+  debugger;
+  let newPost = {
+    id: 5,
+    maseege: postMassege,
+    likesCount: 0,
+  };
+  state.prolifePage.posts.push(newPost);
+};
 export default state;

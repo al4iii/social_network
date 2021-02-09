@@ -10,6 +10,7 @@ import Setting from "./compotents/Setting/Setting";
 import Friends from "./compotents/Friends/Friends";
 import { BrowserRouter, Route } from "react-router-dom";
 
+
 const App = (props) => {
   return (
     <div className="app-wrapper">
@@ -24,7 +25,7 @@ const App = (props) => {
         <Route
           exact
           path="/profile"
-          render={() => <Profile state={props.state.prolifePage} />}
+          render={() => <Profile state={props.state.prolifePage} addPost={props.addPost} />}
         />
         <Route path="/news" render={() => <News />} />
         <Route path="/music" render={() => <Music />} />

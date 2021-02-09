@@ -21,8 +21,13 @@ const Dialogs = (props) => {
       <div className={s.dialogs}>
         <div className={s.dialogsItems}>{dialogElements}</div>
         <div className={s.maseeges}>{maseegesElements}</div>
-        <div className={s.textarea} >
-          <textarea name="comment" cols="80" rows="2" ref={newMassege}></textarea>
+        <div className={s.textarea}>
+          <textarea
+            name="comment"
+            cols="80"
+            rows="2"
+            ref={newMassege}
+          ></textarea>
         </div>
         <div className={s.input}>
           <button onClick={addNewMassege}>add post</button>
