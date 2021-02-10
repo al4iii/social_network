@@ -20,7 +20,12 @@ const App = (props) => {
           exact
           path="/dialogs"
           render={() => (
-            <Dialogs state={props.state.dialogsPage} addPost={props.addPost} />
+            <Dialogs
+              state={props.state.dialogsPage}
+              addMassege={props.addMassege}
+              updateNewMassegeText={props.updateNewMassegeText}
+              newMassegeText ={props.newMassegeText}
+            />
           )}
         />
         <Route

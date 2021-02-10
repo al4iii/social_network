@@ -9,10 +9,12 @@ const Profile = (props) => {
     <div>
       <ProfileFoto />
       <Myself date={props.prolifePage.date} />
-      <MyPosts posts={props.prolifePage.posts}  
-       newPostText={props.prolifePage.newPostText}
-       updateNewPostText={props.updateNewPostText} 
-      addPost={props.addPost}  />
+      <MyPosts
+        posts={props.prolifePage.posts}
+        newPostText={props.prolifePage.newPostText}
+        updateNewPostText={props.updateNewPostText}
+        addPost={props.addPost}
+      />
     </div>
   );
 };

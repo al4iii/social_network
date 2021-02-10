@@ -63,6 +63,7 @@ let state = {
       { id: 4, name: "Zora" },
       { id: 5, name: "Kon'" },
     ],
+    newMassegeText: "hi",
   },
   navbarPage: {
     avatar: [
@@ -101,4 +102,20 @@ export let updateNewPostText = (newText) => {
   state.prolifePage.newPostText = newText;
   rerenderEntireTree(state);
 };
+
+export let addMassege = () => {
+  let newMassege = {
+    id: 1,
+    maseege: state.dialogsPage.newMassegeText,
+  };
+  state.dialogsPage.maseeges.push(newMassege);
+  state.dialogsPage.newMassegeText = " ";
+  rerenderEntireTree(state);
+};
+
+export let updateNewMassegeText = (newText) => {
+  state.dialogsPage.newMassegeText = newText;
+  rerenderEntireTree(state);
+};
+
 export default state;

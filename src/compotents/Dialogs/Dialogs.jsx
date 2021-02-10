@@ -8,12 +8,21 @@ const Dialogs = (props) => {
     <DialogItem name={d.name} id={d.id} />
   ));
   let maseegesElements = props.state.maseeges.map((m) => (
-    <Maseege maseege={m.maseege} />
+    <Maseege
+      maseege={m.maseege}
+      addMassege={props.addMassege}
+      updateNewMassegeText={props.updateNewMassegeText}
+      newMassegeText={props.state.newMassegeText}
+    />
   ));
+
   let newMassege = React.createRef();
-  const addNewMassege = () => {
+  let addNewMassege = () => {
+    props.addMassege();
+  };
+  let onPostChange = () => {
     let text = newMassege.current.value;
-    props.addPost(text);
+    props.updateNewMassegeText(text);
   };
 
   return (
@@ -23,11 +32,13 @@ const Dialogs = (props) => {
         <div className={s.maseeges}>{maseegesElements}</div>
         <div className={s.textarea}>
           <textarea
+            onChange={onPostChange}
             name="comment"
             cols="80"
             rows="2"
             ref={newMassege}
-          ></textarea>
+            value={props.state.newMassegeText}
+          />
         </div>
         <div className={s.input}>
           <button onClick={addNewMassege}>add post</button>
