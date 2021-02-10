@@ -39,7 +39,6 @@ let state = {
           "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
       },
     ],
-
     date: {
       name: "Alexander Danilin",
       dob: "02.12.1983",
@@ -47,6 +46,7 @@ let state = {
       education: "speciaal",
       webSite: "https://www.instagram.com/sasha_al4i/.com/sasha_al4i",
     },
+    newPostText: "IT-Kamasutra",
   },
   dialogsPage: {
     maseeges: [
@@ -84,16 +84,21 @@ let state = {
   },
 };
 
-export let addPost = (postMassege) => {
-  
+export let addPost = () => {
   let newPost = {
     id: 5,
-    maseege: postMassege,
+    maseege: state.prolifePage.newPostText,
     likesCount: 1,
     avatarforo:
       "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
   };
   state.prolifePage.posts.push(newPost);
+  state.prolifePage.newPostText = "";
+  rerenderEntireTree(state);
+};
+
+export let updateNewPostText = (newText) => {
+  state.prolifePage.newPostText = newText;
   rerenderEntireTree(state);
 };
 export default state;

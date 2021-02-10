@@ -8,8 +8,11 @@ const Profile = (props) => {
   return (
     <div>
       <ProfileFoto />
-      <Myself date={props.state.date} />
-      <MyPosts posts={props.state.posts} addPost={props.addPost}  />
+      <Myself date={props.prolifePage.date} />
+      <MyPosts posts={props.prolifePage.posts}  
+       newPostText={props.prolifePage.newPostText}
+       updateNewPostText={props.updateNewPostText} 
+      addPost={props.addPost}  />
     </div>
   );
 };

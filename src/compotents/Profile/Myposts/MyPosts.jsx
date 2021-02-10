@@ -3,7 +3,6 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-  console.log(props);
   let postsElement = props.posts.map((p) => (
     <Post
       message={p.maseege}
@@ -14,10 +13,15 @@ const MyPosts = (props) => {
 
   let newPostElement = React.createRef();
   let addPost = () => {
-    let text = newPostElement.current.value;
-    props.addPost(text);
-    newPostElement.current.value = " ";
+    props.addPost();
+    
   };
+
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
+  };
+
   return (
     <div>
       <div className={s.posts}>
@@ -25,11 +29,13 @@ const MyPosts = (props) => {
       </div>
       <div className={s.textarea}>
         <textarea
+          onChange={onPostChange}
           name="comment"
           cols="80"
           rows="2"
           ref={newPostElement}
-        ></textarea>
+          value={props.newPostText}
+        />
       </div>
       <div className={s.input}>
         <button onClick={addPost}>add post</button>

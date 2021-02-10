@@ -13,7 +13,7 @@ const Dialogs = (props) => {
   let newMassege = React.createRef();
   const addNewMassege = () => {
     let text = newMassege.current.value;
-    alert(text);
+    props.addPost(text);
   };
 
   return (

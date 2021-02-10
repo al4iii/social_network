@@ -4,9 +4,9 @@ import Avatar from "./Avatar/Avarar";
 import s from "./Navbar.module.css";
 
 const Navbar = (props) => {
-  console.log(props.state.avatar);
-  let friendsElement = props.state.avatar.map(p => <Avatar name={p.name} avatarforo={p.avatarforo}/>);
-  console.log(friendsElement);
+  let friendsElement = props.state.avatar.map((p) => (
+    <Avatar name={p.name} avatarforo={p.avatarforo} />
+  ));
   return (
     <nav className={s.nav}>
       <div className={`${s.item} ${s.active}`}>
@@ -37,9 +37,7 @@ const Navbar = (props) => {
       <div className={`${s.item} ${s.setting}`}>
         <NavLink to="/friends" activeClassName={s.activeLink}>
           Friends
-          <div className={s.item}>           
-            {friendsElement}
-          </div>
+          <div className={s.item}>{friendsElement}</div>
         </NavLink>
       </div>
     </nav>
