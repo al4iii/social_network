@@ -1,4 +1,6 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = () => {
+  console.log("state was chengen");
+};
 
 let state = {
   prolifePage: {
@@ -85,25 +87,24 @@ let state = {
   },
 };
 
-export let addPost = () => {
+export const addPost = () => {
   let newPost = {
     id: 5,
     maseege: state.prolifePage.newPostText,
     likesCount: 1,
-    avatarforo:
-      "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
+    avatarforo: "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
   };
   state.prolifePage.posts.push(newPost);
   state.prolifePage.newPostText = "";
   rerenderEntireTree(state);
 };
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
   state.prolifePage.newPostText = newText;
   rerenderEntireTree(state);
 };
 
-export let addMassege = () => {
+export const addMassege = () => {
   let newMassege = {
     id: 1,
     maseege: state.dialogsPage.newMassegeText,
@@ -113,9 +114,14 @@ export let addMassege = () => {
   rerenderEntireTree(state);
 };
 
-export let updateNewMassegeText = (newText) => {
+export const updateNewMassegeText = (newText) => {
   state.dialogsPage.newMassegeText = newText;
   rerenderEntireTree(state);
 };
+
+export const subsctibe = (observer) => {
+  rerenderEntireTree = observer // patern
+};
+
 
 export default state;
