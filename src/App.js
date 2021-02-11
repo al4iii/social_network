@@ -22,9 +22,7 @@ const App = (props) => {
           render={() => (
             <Dialogs
               state={props.state.dialogsPage}
-              addMassege={props.addMassege}
-              updateNewMassegeText={props.updateNewMassegeText}
-              newMassegeText ={props.newMassegeText}
+              dispatch={props.dispatch}
             />
           )}
         />
@@ -34,8 +32,7 @@ const App = (props) => {
           render={() => (
             <Profile
               prolifePage={props.state.prolifePage}
-              addPost={props.addPost}
-              updateNewPostText={props.updateNewPostText}
+              dispatch={props.dispatch}
             />
           )}
         />

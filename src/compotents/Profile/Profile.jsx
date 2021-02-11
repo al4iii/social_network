@@ -12,8 +12,7 @@ const Profile = (props) => {
       <MyPosts
         posts={props.prolifePage.posts}
         newPostText={props.prolifePage.newPostText}
-        updateNewPostText={props.updateNewPostText}
-        addPost={props.addPost}
+        dispatch={props.dispatch}
       />
     </div>
   );

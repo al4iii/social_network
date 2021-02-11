@@ -17,12 +17,17 @@ const Dialogs = (props) => {
   ));
 
   let newMassege = React.createRef();
+
   let addNewMassege = () => {
-    props.addMassege();
+    let action = { type: "ADD-MASSEGE" };
+    props.dispatch(action);
+    newMassege.current.value = ''
   };
+
   let onPostChange = () => {
     let text = newMassege.current.value;
-    props.updateNewMassegeText(text);
+    let action = { type: "UPDATE-NEW-MASSEGE-TEXT", newText: text };
+    props.dispatch(action);    
   };
 
   return (
@@ -37,7 +42,7 @@ const Dialogs = (props) => {
             cols="80"
             rows="2"
             ref={newMassege}
-            value={props.state.newMassegeText}
+            value={props.newMassegeText}
           />
         </div>
         <div className={s.input}>
