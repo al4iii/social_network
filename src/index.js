@@ -1,12 +1,12 @@
 import "./index.css";
-import state , {subsctibe} from "./redux/state";
+import store  from "./redux/state";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route } from "react-router-dom";
-import {  addMassege,  addPost,  updateNewPostText,  updateNewMassegeText } from "./redux/state";
+
 
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
@@ -14,10 +14,10 @@ let rerenderEntireTree = (state) => {
       <BrowserRouter>
         <App
           state={state}
-          addPost={addPost}
-          updateNewPostText={updateNewPostText}
-          addMassege={addMassege}
-          updateNewMassegeText={updateNewMassegeText}
+          addPost={store.addPost.bind(store)}
+          updateNewPostText={store.updateNewPostText.bind(store)}
+          addMassege={store.addMassege.bind(store)}
+          updateNewMassegeText={store.updateNewMassegeText.bind(store)}
         />
       </BrowserRouter>
     </React.StrictMode>,
@@ -25,6 +25,6 @@ let rerenderEntireTree = (state) => {
   );
 };
 
-rerenderEntireTree(state);
-subsctibe(rerenderEntireTree);
+rerenderEntireTree(store.getState());
+store.subsctibe(rerenderEntireTree);
 reportWebVitals();
