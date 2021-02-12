@@ -41,6 +41,7 @@ let store = {
         },
       ],
       date: {
+        foto: "https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/1e94b089-414e-4ee9-a40a-2f05a8957568/220x330",
         name: "Alexander Danilin",
         dob: "02.12.1983",
         city: "Mogilev",

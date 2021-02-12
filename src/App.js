@@ -8,7 +8,7 @@ import News from "./compotents/News/News";
 import Music from "./compotents/Music/Music";
 import Setting from "./compotents/Setting/Setting";
 import Friends from "./compotents/Friends/Friends";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 const App = (props) => {
   return (

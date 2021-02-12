@@ -10,7 +10,7 @@ import Maseege from "./Massege/Massege";
 const Dialogs = (props) => {
   console.log(props.state.newMassegeText);
   let dialogElements = props.state.dialog.map((d) => (
-    <DialogItem name={d.name} id={d.id} />
+    <DialogItem name={d.name} id={d.id}  className={s.dialog_item}/>
   ));
   let maseegesElements = props.state.maseeges.map((m) => (
     <Maseege
@@ -18,6 +18,7 @@ const Dialogs = (props) => {
       addMassege={props.addMassege}
       updateNewMassegeText={props.updateNewMassegeText}
       newMassegeText={props.state.newMassegeText}
+      className={s.maseege}
     />
   ));
 
@@ -37,11 +38,12 @@ const Dialogs = (props) => {
       <div className={s.dialogs}>
         <div className={s.dialogsItems}>{dialogElements}</div>
         <div className={s.maseeges}>{maseegesElements}</div>
-        <div className={s.textarea}>
+        <div className={s.enter}>
+          <div >
           <textarea
             onChange={onPostChange}
             name="newMassegeText"
-            cols="80"
+            cols="50"
             rows="2"
             placeholder="Enter your massege"
             value={props.state.newMassegeText}
@@ -49,7 +51,8 @@ const Dialogs = (props) => {
         </div>
         <div className={s.input}>
           <button onClick={addNewMassege}>send</button>
-        </div>
+        </div></div>
+        
       </div>
     </div>
   );
