@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import DialogItem from "./DialogItem/DialogItem";
+import {
+  addNewMassegeActionCreater,
+  updateNewMassegeTextActionCreater,
+} from "../../redux/state";
 import s from "./Dialogs.module.css";
 import Maseege from "./Massege/Massege";
 
@@ -19,15 +23,15 @@ const Dialogs = (props) => {
   let newMassege = React.createRef();
 
   let addNewMassege = () => {
-    let action = { type: "ADD-MASSEGE" };
+    let action = addNewMassegeActionCreater();
     props.dispatch(action);
-    newMassege.current.value = ''
+    newMassege.current.value = "";
   };
 
   let onPostChange = () => {
     let text = newMassege.current.value;
-    let action = { type: "UPDATE-NEW-MASSEGE-TEXT", newText: text };
-    props.dispatch(action);    
+    let action = updateNewMassegeTextActionCreater(text);
+    props.dispatch(action);
   };
 
   return (

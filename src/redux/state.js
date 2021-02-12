@@ -1,3 +1,10 @@
+const ADD_POST = "ADD-POST";
+const ADD_MASSEGE = "ADD-MASSEGE"
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const UPDATE_NEW_MASSEGE_TEXT = "UPDATE-NEW-MASSEGE-TEXT"
+const AVATAR_FOTO =
+  "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg";
+
 let store = {
   _state: {
     prolifePage: {
@@ -6,36 +13,31 @@ let store = {
           id: 1,
           maseege: "hi, how are you?",
           likesCount: 15,
-          avatarforo:
-            "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
+          avatarforo: AVATAR_FOTO,
         },
         {
           id: 2,
           maseege: "it's my first post!!",
           likesCount: 101,
-          avatarforo:
-            "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
+          avatarforo: AVATAR_FOTO,
         },
         {
           id: 3,
           maseege: "Have a goog day!!",
           likesCount: 17,
-          avatarforo:
-            "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
+          avatarforo: AVATAR_FOTO,
         },
         {
           id: 4,
           maseege: "Yo",
           likesCount: 13,
-          avatarforo:
-            "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
+          avatarforo: AVATAR_FOTO,
         },
         {
           id: 5,
           maseege: "Yo",
           likesCount: 104,
-          avatarforo:
-            "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
+          avatarforo: AVATAR_FOTO,
         },
       ],
       date: {
@@ -68,8 +70,7 @@ let store = {
       avatar: [
         {
           name: "ilich",
-          avatarforo:
-            "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
+          avatarforo: AVATAR_FOTO,
         },
         {
           name: "albert",
@@ -97,34 +98,44 @@ let store = {
 
   dispatch(action) {
     // type : 'ADD-POST'
-    if (action.type === "ADD-POST") {
+    if (action.type === ADD_POST) {
       let newPost = {
         id: 5,
         maseege: this._state.prolifePage.newPostText,
         likesCount: 1,
-        avatarforo:
-          "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
+        avatarforo: AVATAR_FOTO,
       };
       this._state.prolifePage.posts.push(newPost);
       this._state.prolifePage.newPostText = "";
       this._callSubscriber(this._state);
-    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.prolifePage.newPostText = action.newText;
       this._callSubscriber(this._state);
-    } else if (action.type === "ADD-MASSEGE") {      
+    } else if (action.type === ADD_MASSEGE) {
       let newMassege = {
         id: 10,
-        maseege: this._state.dialogsPage.newMassegeText
+        maseege: this._state.dialogsPage.newMassegeText,
       };
       this._state.dialogsPage.maseeges.push(newMassege);
-      this._state.dialogsPage.newMassegeText = " ";      
+      this._state.dialogsPage.newMassegeText = " ";
       this._callSubscriber(this._state);
-    } else if (action.type === "UPDATE-NEW-MASSEGE-TEXT") {
+    } else if (action.type === UPDATE_NEW_MASSEGE_TEXT) {
       this._state.dialogsPage.newMassegeText = action.newText;
       this._callSubscriber(this._state);
     }
   },
 };
+
+export const addPostActionCreater = () => ({ type: ADD_POST });
+export const addNewMassegeActionCreater = () => ({ type: ADD_MASSEGE });
+export const updateNewPOstTextActionCreater = (text) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  newText: text,
+});
+export const updateNewMassegeTextActionCreater = (text) => ({
+  type: UPDATE_NEW_MASSEGE_TEXT,
+  newText: text,
+});
 
 window.store = store;
 export default store;
