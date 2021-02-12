@@ -8,6 +8,7 @@ import s from "./Dialogs.module.css";
 import Maseege from "./Massege/Massege";
 
 const Dialogs = (props) => {
+  console.log(props.state.newMassegeText);
   let dialogElements = props.state.dialog.map((d) => (
     <DialogItem name={d.name} id={d.id} />
   ));
@@ -20,16 +21,13 @@ const Dialogs = (props) => {
     />
   ));
 
-  let newMassege = React.createRef();
-
   let addNewMassege = () => {
     let action = addNewMassegeActionCreater();
     props.dispatch(action);
-    newMassege.current.value = "";
   };
 
-  let onPostChange = () => {
-    let text = newMassege.current.value;
+  let onPostChange = (e) => {
+    let text = e.target.value;
     let action = updateNewMassegeTextActionCreater(text);
     props.dispatch(action);
   };
@@ -42,15 +40,15 @@ const Dialogs = (props) => {
         <div className={s.textarea}>
           <textarea
             onChange={onPostChange}
-            name="comment"
+            name="newMassegeText"
             cols="80"
             rows="2"
-            ref={newMassege}
-            value={props.newMassegeText}
+            placeholder="Enter your massege"
+            value={props.state.newMassegeText}
           />
         </div>
         <div className={s.input}>
-          <button onClick={addNewMassege}>add post</button>
+          <button onClick={addNewMassege}>send</button>
         </div>
       </div>
     </div>

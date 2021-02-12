@@ -39,6 +39,7 @@ const MyPosts = (props) => {
           rows="2"
           ref={newPostElement}
           value={props.newPostText}
+          placeholder="Enter your massege"
         />
       </div>
       <div className={s.input}>

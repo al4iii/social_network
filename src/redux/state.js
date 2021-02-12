@@ -1,7 +1,7 @@
 const ADD_POST = "ADD-POST";
-const ADD_MASSEGE = "ADD-MASSEGE"
+const ADD_MASSEGE = "ADD-MASSEGE";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const UPDATE_NEW_MASSEGE_TEXT = "UPDATE-NEW-MASSEGE-TEXT"
+const UPDATE_NEW_MASSEGE_TEXT = "UPDATE-NEW-MASSEGE-TEXT";
 const AVATAR_FOTO =
   "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg";
 
@@ -47,16 +47,9 @@ let store = {
         education: "speciaal",
         webSite: "https://www.instagram.com/sasha_al4i/.com/sasha_al4i",
       },
-      newPostText: "IT-Kamasutra",
+      newPostText: "",
     },
     dialogsPage: {
-      maseeges: [
-        { id: 1, maseege: "Hi?" },
-        { id: 2, maseege: "How are you?" },
-        { id: 3, maseege: "Have a goog day!!" },
-        { id: 4, maseege: "Yo" },
-        { id: 5, maseege: "Yo" },
-      ],
       dialog: [
         { id: 1, name: "Dimych" },
         { id: 2, name: "Alex" },
@@ -64,7 +57,14 @@ let store = {
         { id: 4, name: "Zora" },
         { id: 5, name: "Kon'" },
       ],
-      newMassegeText: "rr",
+      maseeges: [
+        { id: 1, maseege: "Hi?" },
+        { id: 2, maseege: "How are you?" },
+        { id: 3, maseege: "Have a goog day!!" },
+        { id: 4, maseege: "Yo" },
+        { id: 5, maseege: "Yo" },
+      ],
+      newMassegeText: "",
     },
     navbarPage: {
       avatar: [
@@ -97,7 +97,6 @@ let store = {
   },
 
   dispatch(action) {
-    // type : 'ADD-POST'
     if (action.type === ADD_POST) {
       let newPost = {
         id: 5,
@@ -117,8 +116,9 @@ let store = {
         maseege: this._state.dialogsPage.newMassegeText,
       };
       this._state.dialogsPage.maseeges.push(newMassege);
-      this._state.dialogsPage.newMassegeText = " ";
+      this._state.dialogsPage.newMassegeText = "";
       this._callSubscriber(this._state);
+      debugger;
     } else if (action.type === UPDATE_NEW_MASSEGE_TEXT) {
       this._state.dialogsPage.newMassegeText = action.newText;
       this._callSubscriber(this._state);
