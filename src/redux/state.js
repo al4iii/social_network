@@ -1,7 +1,7 @@
-const ADD_POST = "ADD-POST";
-const ADD_MASSEGE = "ADD-MASSEGE";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const UPDATE_NEW_MASSEGE_TEXT = "UPDATE-NEW-MASSEGE-TEXT";
+import dialogsReducer from "./dialogs-reducer";
+import navbarReducer from "./navbar-reducer";
+import profileReducer from "./profile-reducer";
+
 const AVATAR_FOTO =
   "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg";
 
@@ -97,45 +97,14 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 5,
-        maseege: this._state.prolifePage.newPostText,
-        likesCount: 1,
-        avatarforo: AVATAR_FOTO,
-      };
-      this._state.prolifePage.posts.push(newPost);
-      this._state.prolifePage.newPostText = "";
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.prolifePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    } else if (action.type === ADD_MASSEGE) {
-      let newMassege = {
-        id: 10,
-        maseege: this._state.dialogsPage.newMassegeText,
-      };
-      this._state.dialogsPage.maseeges.push(newMassege);
-      this._state.dialogsPage.newMassegeText = "";
-      this._callSubscriber(this._state);
-      debugger;
-    } else if (action.type === UPDATE_NEW_MASSEGE_TEXT) {
-      this._state.dialogsPage.newMassegeText = action.newText;
-      this._callSubscriber(this._state);
-    }
+    this._state.prolifePage = profileReducer(this._state.prolifePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.navbarPage = navbarReducer(this._state.navbarPage, action);
+
+    this._callSubscriber(this._state);
   },
 };
 
-export const addPostActionCreater = () => ({ type: ADD_POST });
-export const addNewMassegeActionCreater = () => ({ type: ADD_MASSEGE });
-export const updateNewPOstTextActionCreater = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: text,
-});
-export const updateNewMassegeTextActionCreater = (text) => ({
-  type: UPDATE_NEW_MASSEGE_TEXT,
-  newText: text,
-});
 
 window.store = store;
 export default store;

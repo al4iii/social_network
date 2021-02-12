@@ -3,7 +3,7 @@ import DialogItem from "./DialogItem/DialogItem";
 import {
   addNewMassegeActionCreater,
   updateNewMassegeTextActionCreater,
-} from "../../redux/state";
+} from "../../redux/dialogs-reducer";
 import s from "./Dialogs.module.css";
 import Maseege from "./Massege/Massege";
 
