@@ -93,7 +93,7 @@ let store = {
   getState() {
     return this._state;
   },
-  subsctibe(observer) {
+  subsctribe(observer) {
     this._callSubscriber = observer; // patern
   },
 
@@ -101,7 +101,6 @@ let store = {
     this._state.prolifePage = profileReducer(this._state.prolifePage, action);
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
     this._state.navbarPage = navbarReducer(this._state.navbarPage, action);
-
     this._callSubscriber(this._state);
   },
 };
