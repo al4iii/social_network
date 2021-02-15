@@ -4,15 +4,12 @@ import Myself from "./MySelf/Myself";
 import ProfileFoto from "./ProfileFoto/ProfileFoto";
 import MyPostsContainer from "./Myposts/MyPostsContainer";
 
-const Profile = (props) => {
-
-  console.log(props)
-  debugger
+const Profile = () => {
   return (
     <div>
       <ProfileFoto />
-      <Myself state={props.state}/>
-      <MyPostsContainer store={props.store} />
+      <Myself/>
+      <MyPostsContainer />
     </div>
   );
 };

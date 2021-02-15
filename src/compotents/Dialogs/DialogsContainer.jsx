@@ -3,19 +3,26 @@ import {
   addNewMassegeActionCreater,
   updateNewMassegeTextActionCreater,
 } from "../../redux/dialogs-reducer";
+import StoreContext from "../../StoreContext";
 import Dialogs from "./Dialogs";
 
-const DialogsContainer = (props) => {
-  let state = props.store.getState().dialogsPage;
-  let addNewMassege = () => props.store.dispatch(addNewMassegeActionCreater());
-  let onPostChange = (text) => props.store.dispatch(updateNewMassegeTextActionCreater(text));
-
+const DialogsContainer = () => {
   return (
-    <Dialogs
-      updateNewMassegeText={onPostChange}
-      addNewMassege={addNewMassege}
-      dialogsPage={state}
-    />
+    <StoreContext.Consumer>
+      {(store) => {
+        let state = store.getState().dialogsPage;
+        let addNewMassege = () => store.dispatch(addNewMassegeActionCreater());
+        let onPostChange = (text) =>
+          store.dispatch(updateNewMassegeTextActionCreater(text));
+        return (
+          <Dialogs
+            updateNewMassegeText={onPostChange}
+            addNewMassege={addNewMassege}
+            dialogsPage={state}
+          />
+        );
+      }}
+    </StoreContext.Consumer>
   );
 };
 

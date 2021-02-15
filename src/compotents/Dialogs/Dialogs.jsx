@@ -4,7 +4,6 @@ import s from "./Dialogs.module.css";
 import Maseege from "./Massege/Massege";
 
 const Dialogs = (props) => {
-  debugger;
   let state = props.dialogsPage;
   let dialogElements = state.dialog.map((d) => (
     <DialogItem name={d.name} id={d.id} className={s.dialog_item} />
@@ -17,7 +16,6 @@ const Dialogs = (props) => {
     let text = e.target.value;
     props.updateNewMassegeText(text);
   };
-
   return (
     <div>
       <div className={s.dialogs}>

@@ -1,24 +1,31 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import StoreContext from "../../../StoreContext";
 import s from "./Myself.module.css";
 
-const Myself = (props) => {
-  debugger;
+const Myself = () => {
   return (
-    <div className={s.myself}>
-      <div className={s.img}>
-        <img src={props.state.foto} />
-      </div>
-      <div className={s.profile}>
-        <div className={s.item}>{props.state.name}</div>
-        <div className={s.item}>{props.state.dob}</div>
-        <div className={s.item}>City {props.state.city}</div>
-        <div className={s.item}>Education {props.state.education}</div>
-        <div className={s.item}>
-          Web site <NavLink to={props.state.webSite}>instagram</NavLink>
-        </div>
-      </div>
-    </div>
+    <StoreContext.Consumer>
+      {(store) => {
+        let state = store.getState().prolifePage.date;
+        return (
+          <div className={s.myself}>
+            <div className={s.img}>
+              <img src={state.foto} />
+            </div>
+            <div className={s.profile}>
+              <div className={s.item}>{state.name}</div>
+              <div className={s.item}>{state.dob}</div>
+              <div className={s.item}>City {state.city}</div>
+              <div className={s.item}>Education {state.education}</div>
+              <div className={s.item}>
+                Web site <NavLink to={state.webSite}>instagram</NavLink>
+              </div>
+            </div>
+          </div>
+        );
+      }}
+    </StoreContext.Consumer>
   );
 };
 
