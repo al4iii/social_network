@@ -41,7 +41,8 @@ let store = {
         },
       ],
       date: {
-        foto: "https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/1e94b089-414e-4ee9-a40a-2f05a8957568/220x330",
+        foto:
+          "https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/1e94b089-414e-4ee9-a40a-2f05a8957568/220x330",
         name: "Alexander Danilin",
         dob: "02.12.1983",
         city: "Mogilev",
@@ -89,14 +90,12 @@ let store = {
   _callSubscriber() {
     console.log("state was chengen");
   },
-
   getState() {
     return this._state;
   },
   subsctribe(observer) {
     this._callSubscriber = observer; // patern
   },
-
   dispatch(action) {
     this._state.prolifePage = profileReducer(this._state.prolifePage, action);
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
@@ -104,7 +103,6 @@ let store = {
     this._callSubscriber(this._state);
   },
 };
-
 
 window.store = store;
 export default store;

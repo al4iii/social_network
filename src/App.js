@@ -9,6 +9,7 @@ import Music from "./compotents/Music/Music";
 import Setting from "./compotents/Setting/Setting";
 import Friends from "./compotents/Friends/Friends";
 import { Route } from "react-router-dom";
+import DialogsContainer from "./compotents/Dialogs/DialogsContainer";
 
 const App = (props) => {
   return (
@@ -19,21 +20,13 @@ const App = (props) => {
         <Route
           exact
           path="/dialogs"
-          render={() => (
-            <Dialogs
-              state={props.state.dialogsPage}
-              dispatch={props.dispatch}
-            />
-          )}
+          render={() => <DialogsContainer store={props.store} />}
         />
         <Route
           exact
           path="/profile"
           render={() => (
-            <Profile
-              prolifePage={props.state.prolifePage}
-              dispatch={props.dispatch}
-            />
+            <Profile store={props.store} state={props.state.prolifePage.date} />
           )}
         />
         <Route path="/news" render={() => <News />} />

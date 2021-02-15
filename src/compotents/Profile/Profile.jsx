@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import "./Profile.module.css";
 import Myself from "./MySelf/Myself";
-import MyPosts from "./Myposts/MyPosts";
 import ProfileFoto from "./ProfileFoto/ProfileFoto";
+import MyPostsContainer from "./Myposts/MyPostsContainer";
 
 const Profile = (props) => {
+
+  console.log(props)
+  debugger
   return (
     <div>
       <ProfileFoto />
-      <Myself date={props.prolifePage.date} />
-      <MyPosts
-        posts={props.prolifePage.posts}
-        newPostText={props.prolifePage.newPostText}
-        dispatch={props.dispatch}
-      />
+      <Myself state={props.state}/>
+      <MyPostsContainer store={props.store} />
     </div>
   );
 };

@@ -1,7 +1,5 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const AVATAR_FOTO =
-  "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg";
 
   let initialState = {
     posts: [
@@ -9,31 +7,31 @@ const AVATAR_FOTO =
         id: 1,
         maseege: "hi, how are you?",
         likesCount: 15,
-        avatarforo: AVATAR_FOTO,
+        avatarforo: "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
       },
       {
         id: 2,
         maseege: "it's my first post!!",
         likesCount: 101,
-        avatarforo: AVATAR_FOTO,
+        avatarforo: "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
       },
       {
         id: 3,
         maseege: "Have a goog day!!",
         likesCount: 17,
-        avatarforo: AVATAR_FOTO,
+        avatarforo: "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
       },
       {
         id: 4,
         maseege: "Yo",
         likesCount: 13,
-        avatarforo: AVATAR_FOTO,
+        avatarforo: "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
       },
       {
         id: 5,
         maseege: "Yo",
         likesCount: 104,
-        avatarforo: AVATAR_FOTO,
+        avatarforo: "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
       },
     ],
     date: {
@@ -53,8 +51,8 @@ const profileReducer = (state = initialState, action) => {
       let newPost = {
         id: 5,
         maseege: state.newPostText,
-        likesCount: 1,
-        avatarforo: AVATAR_FOTO,
+        likesCount: 0,
+        avatarforo: "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
       };
       state.posts.push(newPost);
       state.newPostText = "";
