@@ -20,17 +20,22 @@ let initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_MASSEGE:
+    case ADD_MASSEGE: {
       let newMassege = {
         id: 10,
         maseege: state.newMassegeText,
       };
-      state.maseeges.push(newMassege);
-      state.newMassegeText = "";
-      return state;
-    case UPDATE_NEW_MASSEGE_TEXT:
-      state.newMassegeText = action.newText;
-      return state;
+      let stateCopy = { ...state };
+      stateCopy.maseeges = [...state.maseeges];
+      stateCopy.maseeges.push(newMassege);
+      stateCopy.newMassegeText = "";
+      return stateCopy;
+    }
+    case UPDATE_NEW_MASSEGE_TEXT: {
+      let stateCopy = { ...state };
+      stateCopy.newMassegeText = action.newText;
+      return stateCopy;
+    }
     default:
       return state;
   }
