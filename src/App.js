@@ -9,12 +9,13 @@ import Setting from "./compotents/Setting/Setting";
 import Friends from "./compotents/Friends/Friends";
 import { Route } from "react-router-dom";
 import DialogsContainer from "./compotents/Dialogs/DialogsContainer";
+import NavbarContainer from "./compotents/Navbar/NavbarContainer";
 
 const App = () => {
   return (
     <div className="app-wrapper">
       <Header />
-      <Nav />      
+      <NavbarContainer/>      
       <div className="app-wrapper-content">
         <Route exact path="/dialogs" render={() => <DialogsContainer />} />
         <Route exact path="/profile" render={() => <Profile />} />

@@ -18,7 +18,6 @@ const MyPosts = (props) => {
     let text = newPostElement.current.value;
     props.updateNewPOstText(text);
   };
-
   return (
     <div>
       <div className={s.posts}>

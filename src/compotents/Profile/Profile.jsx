@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "./Profile.module.css";
-import Myself from "./MySelf/Myself";
-import ProfileFoto from "./ProfileFoto/ProfileFoto";
 import MyPostsContainer from "./Myposts/MyPostsContainer";
+import MyselfContainer from "./MySelf/MyselfContainer";
+import ProfileFotoContainer from "./ProfileFoto/ProfileFotoContainer";
 
 const Profile = () => {
   return (
     <div>
-      <ProfileFoto />
-      <Myself/>
+      <ProfileFotoContainer />
+      <MyselfContainer />
       <MyPostsContainer />
     </div>
   );
