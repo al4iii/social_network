@@ -4,13 +4,13 @@ import s from "./Dialogs.module.css";
 import Maseege from "./Massege/Massege";
 
 const Dialogs = (props) => {
-  debugger
+  debugger;
   let state = props.dialogsPage;
   let dialogElements = state.dialog.map((d) => (
-    <DialogItem name={d.name} id={d.id} className={s.dialog_item} />
+    <DialogItem name={d.name} id={d.id} key={d.id} className={s.dialog_item} />
   ));
   let maseegesElements = state.maseeges.map((m) => (
-    <Maseege maseege={m.maseege} />
+    <Maseege maseege={m.maseege} key={m.id} />
   ));
   let addNewMassege = () => props.addNewMassege();
   let onPostChange = (e) => {

@@ -6,7 +6,7 @@ import s from "./Navbar.module.css";
 const Navbar = (props) => { 
   let state = props.navbarPage;  
   let friendsElement = state.avatar.map((p) => (
-    <Avatar name={p.name} avatarforo={p.avatarforo} />
+    <Avatar name={p.name} key={p.id} avatarforo={p.avatarforo} />
   ));
   return (
     <nav className={s.nav}>
