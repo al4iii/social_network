@@ -1,4 +1,4 @@
-import React, { Component, useDebugValue } from "react";
+import React from "react";
 import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 import Maseege from "./Massege/Massege";

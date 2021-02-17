@@ -1,5 +1,6 @@
 const ADD_MASSEGE = "ADD-MASSEGE";
 const UPDATE_NEW_MASSEGE_TEXT = "UPDATE-NEW-MASSEGE-TEXT";
+
 let initialState = {
   dialog: [
     { id: 1, name: "Dimych" },

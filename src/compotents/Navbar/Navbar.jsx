@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import Avatar from "./Avatar/Avarar";
 import s from "./Navbar.module.css";
@@ -18,6 +18,11 @@ const Navbar = (props) => {
       <div className={s.item}>
         <NavLink to="/dialogs" activeClassName={s.activeLink}>
           Messeges
+        </NavLink>
+      </div>
+      <div className={s.item}>
+        <NavLink to="/users" activeClassName={s.activeLink}>
+          Users
         </NavLink>
       </div>
       <div className={s.item}>
