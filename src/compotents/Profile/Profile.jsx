@@ -7,7 +7,7 @@ import ProfileFotoContainer from "./ProfileFoto/ProfileFotoContainer";
 const Profile = () => {
   return (
     <div>
-      <ProfileFotoContainer />
+      {/* <ProfileFotoContainer /> */}
       <MyselfContainer />
       <MyPostsContainer />
     </div>

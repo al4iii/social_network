@@ -20,6 +20,15 @@
   justify-content: end;
 }
 
+.dialog a {
+  text-decoration: none;
+}
+
+.dialog a:visited {
+  text-decoration: none;
+  color: rgb(73, 54, 148);
+}
+
 .enter {
   height: 200px;
   grid-area: enter;
@@ -28,7 +37,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  padding-right: 40px;  
+  padding-right: 40px;
 }
 
 .maseeges {
@@ -46,8 +55,3 @@
   display: flex;
   justify-content: flex-end;
 }
-/* 
-.input {
-  display: flex;
-  justify-content: flex-end;
-} */

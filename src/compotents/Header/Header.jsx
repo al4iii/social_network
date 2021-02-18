@@ -10,6 +10,7 @@ const Header = () => {
       </NavLink>
       <NavLink to="/profile" className={s.h1}>
         <h1>ENcounter</h1>
+        <img src="./../maxresdefault.jpg" />
       </NavLink>
     </header>
   );

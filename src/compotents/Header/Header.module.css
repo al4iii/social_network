@@ -13,5 +13,12 @@
 .h1 {
   color: rgb(15, 56, 3);
   text-decoration: none;
-  width: 155px;  
+  width: 155px;
+  display: flex;
+}
+
+.h1 > img {
+  margin: 0 10px;
+  width: 920px;
+  height: 100px;
 }
