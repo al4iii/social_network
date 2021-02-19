@@ -29,3 +29,11 @@
 .name :first-child {
   padding-bottom: 15px;
 }
+
+.selectedPage{
+  font-weight: bold;
+}
+ 
+.spanPage{
+  padding: 2px;
+}
