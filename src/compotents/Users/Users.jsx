@@ -61,8 +61,10 @@ let Users = (props) => {
               <div>{u.status}</div>
             </span>
             <span className={style.location}>
-              <div>{"u.location.city"} </div>
-              <div> {"u.location.contry"} </div>
+              <div>{"Mogilev"} </div> 
+              {/* {"u.location.city"} */}
+              <div> {"Belarus"} </div> 
+              {/* {"u.location.contry"} */}
             </span>
           </span>
         </div>
