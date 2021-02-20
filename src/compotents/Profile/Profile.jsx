@@ -4,12 +4,12 @@ import MyPostsContainer from "./Myposts/MyPostsContainer";
 import MyselfContainer from "./MySelf/MyselfContainer";
 import ProfileFotoContainer from "./ProfileFoto/ProfileFotoContainer";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div>
       {/* <ProfileFotoContainer /> */}
-      <MyselfContainer />
-      <MyPostsContainer />
+      <MyselfContainer profile = {props.profile}/>
+      <MyPostsContainer profile = {props.profile}/>
     </div>
   );
 };

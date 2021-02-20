@@ -1,5 +1,6 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const SET_USERS_PROFILE = "SET_USERS_PROFILE";
 
 let initialState = {
   posts: [
@@ -51,6 +52,7 @@ let initialState = {
   profileFoto:
     "https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300",
   newPostText: "",
+  profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -73,14 +75,24 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         newPostText: action.newText,
       };
+    case SET_USERS_PROFILE:
+      return {
+        ...state,
+        profile: action.profile,
+      };
     default:
       return state;
   }
 };
 
 export const addPost = () => ({ type: ADD_POST });
+export const setUserProfile = (profile) => ({
+  type: SET_USERS_PROFILE,
+  profile,
+});
 export const updateNewPostText = (text) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: text,
 });
+
 export default profileReducer;
