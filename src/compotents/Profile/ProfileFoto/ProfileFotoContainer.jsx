@@ -7,12 +7,6 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return { dispatch: () => dispatch };
-};
-const ProfileFotoContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProfileFoto);
+const ProfileFotoContainer = connect(mapStateToProps, {})(ProfileFoto);
 
 export default ProfileFotoContainer;

@@ -39,8 +39,8 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const addNewMassegeActionCreater = () => ({ type: ADD_MASSEGE });
-export const updateNewMassegeTextActionCreater = (text) => ({
+export const addNewMassege = () => ({ type: ADD_MASSEGE });
+export const updateNewMassegeText = (text) => ({
   type: UPDATE_NEW_MASSEGE_TEXT,
   newText: text,
 });

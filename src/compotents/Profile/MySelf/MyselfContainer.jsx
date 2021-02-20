@@ -7,9 +7,6 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {};
-};
-const MyselfContainer = connect(mapStateToProps, mapDispatchToProps)(Myself);
+const MyselfContainer = connect(mapStateToProps, {})(Myself);
 
 export default MyselfContainer;

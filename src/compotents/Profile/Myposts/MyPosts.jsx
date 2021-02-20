@@ -17,7 +17,7 @@ const MyPosts = (props) => {
   };
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPOstText(text);
+    props.updateNewPostText(text);
   };
   return (
     <div>
@@ -32,7 +32,7 @@ const MyPosts = (props) => {
           rows="2"
           ref={newPostElement}
           value={props.newPostText}
-          placeholder="Enter your massege"
+          placeholder="Enter your message"
         />
       </div>
       <div className={s.input}>

@@ -6,7 +6,7 @@
     "header header"
     "nav content";
   grid-template-rows: 100px 1fr;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 200px 990px;
   grid-gap: 10px;
   font-family: "Roboto", sans-serif;
 }
