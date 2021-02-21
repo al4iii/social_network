@@ -1,20 +1,20 @@
 .myself {
   display: grid;
-  grid-template-columns: 230px 500px;
-  grid-template-rows: 200px;
+  grid-template-columns: 300px 500px;
   grid-template-areas: "img Profile";
-  padding: 30px;
-  padding-left: 70px;
+  padding: 20px;
+  padding-left: 100px;
 }
 
-.img img {
-  margin: 0 0 0 30px;
-  width: 200px;
-  grid-area: img;
+.img {
+  margin: 30px;
+  width: 20px;
+  grid-column: 1/2;
 }
 
 .profile {
   grid-area: Profile;
+  padding: 15px;
 }
 
 .item {

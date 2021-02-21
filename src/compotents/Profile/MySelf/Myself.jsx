@@ -7,22 +7,15 @@ const Myself = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
+  debugger;
   return (
     <div>
       <div className={s.myself}>
         <img src={props.profile.photos.large} />
-        ava+ deccription
-        <div className={s.img}>
-          <img src={props.prolifePage.foto} />
-        </div>
+        <div className={s.img}></div>
         <div className={s.profile}>
-          <div className={s.item}>{props.prolifePage.name}</div>
-          <div className={s.item}>{props.prolifePage.dob}</div>
-          <div className={s.item}>City {props.prolifePage.city}</div>
-          <div className={s.item}>Education {props.prolifePage.education}</div>
-          <div className={s.item}>
-            Web site <NavLink to={props.prolifePage.webSite}>instagram</NavLink>
-          </div>
+          <p>{props.profile.fullName}</p>
+          <p>Status: {props.profile.aboutMe} </p>
         </div>
       </div>
     </div>

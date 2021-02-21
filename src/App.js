@@ -11,7 +11,6 @@ import NavbarContainer from "./compotents/Navbar/NavbarContainer";
 import UsersContainer from "./compotents/Users/UsersContainer";
 import ProfileConteiner from "./compotents/Profile/ProfileConteiner";
 
-
 const App = () => {
   return (
     <div className="app-wrapper">
@@ -19,7 +18,11 @@ const App = () => {
       <NavbarContainer />
       <div className="app-wrapper-content">
         <Route exact path="/dialogs" render={() => <DialogsContainer />} />
-        <Route exact path="/profile" render={() => <ProfileConteiner />} />
+        <Route
+          exact
+          path="/profile/:userId?"
+          render={() => <ProfileConteiner />}
+        />
         <Route exact path="/news" render={() => <News />} />
         <Route exact path="/music" render={() => <Music />} />
         <Route exact path="/setting" render={() => <Setting />} />
