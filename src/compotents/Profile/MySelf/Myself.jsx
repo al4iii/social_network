@@ -7,7 +7,7 @@ const Myself = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
-  debugger;
+
   return (
     <div>
       <div className={s.myself}>

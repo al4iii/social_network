@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import s from "./Header.module.css";
 import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className={s.header}>
       <NavLink to="/profile">
@@ -11,7 +11,15 @@ const Header = () => {
       <NavLink to="/profile" className={s.h1}>
         <h1>ENcounter</h1>
         <img src="./../maxresdefault.jpg" />
+        {props.isAuth ? (
+          <NavLink to="/login" className={s.login_block}>Привет, {props.login}!!</NavLink>
+        ) : (
+          <NavLink to="/login" className={s.login_block}>
+            Login
+          </NavLink>
+        )}
       </NavLink>
+      
     </header>
   );
 };
