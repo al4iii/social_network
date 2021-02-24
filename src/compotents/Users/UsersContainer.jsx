@@ -2,33 +2,24 @@ import { connect } from "react-redux";
 import React from "react";
 import {
   follow,
-  setUsers,
   unfollow,
+  setUsers,
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
   toggleFollowingInProgress,
+  getUsers,
+  getUsersOnPageChanged,
 } from "../../redux/users-reduser";
 import Users from "./Users";
 import Preloader from "../../Common/Preloader/Preloader";
-import { API } from "../../api/api";
 
 class UsersComponer extends React.Component {
   componentDidMount() {
-    this.props.toggleIsFetching(true);
-    API.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
-      this.props.toggleIsFetching(false);
-      this.props.setUsers(data.items);
-      this.props.setTotalUsersCount(data.totalCount);
-    });
+    this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
   onPageChanged = (pageNumber) => {
-    this.props.toggleIsFetching(true);
-    this.props.setCurrentPage(pageNumber);
-    API.getUsers(pageNumber, this.props.pageSize).then((data) => {
-      this.props.toggleIsFetching(false);
-      this.props.setUsers(data.items);
-    });
+    this.props.getUsersOnPageChanged(pageNumber, this.props.pageSize);
   };
   render() {
     return (
@@ -40,11 +31,9 @@ class UsersComponer extends React.Component {
           pageSize={this.props.pageSize}
           onPageChanged={this.onPageChanged}
           users={this.props.users}
+          followingInProgress={this.props.followingInProgress}
           follow={this.props.follow}
           unfollow={this.props.unfollow}
-          toggleFollowingInProgress={this.props.toggleFollowingInProgress}
-          followingInProgress={this.props.followingInProgress}
-
         />
       </>
     );
@@ -64,12 +53,15 @@ let mapStateToProps = (state) => {
 };
 
 const UsersContainer = connect(mapStateToProps, {
-  follow,
-  unfollow,
   setUsers,
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
   toggleFollowingInProgress,
+  getUsers,
+  getUsersOnPageChanged,
+  follow,
+  unfollow,  
 })(UsersComponer);
+
 export default UsersContainer;
