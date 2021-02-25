@@ -18,7 +18,8 @@ let Users = (props) => {
             <span
               className={`${props.currentPage === p && style.selectedPage}
                ${style.spanPage} `}
-              onClick={(e) => props.onPageChanged(p)}>
+              onClick={(e) => props.onPageChanged(p)}
+            >
               {p}
             </span>
           );
@@ -38,14 +39,18 @@ let Users = (props) => {
             </div>
             <div>
               {u.followed ? (
-                <button disabled={props.followingInProgress.some((id) => id === u.id)}
-                  onClick={() => { props.unfollow(u.id)}} >
+                <button
+                  disabled={props.followingInProgress.some((id) => id === u.id)}
+                  onClick={() => {props.unfollow(u.id)}}>
                   Unfollow
                 </button>
               ) : (
                 <button
                   disabled={props.followingInProgress.some((id) => id === u.id)}
-                  onClick={() => {props.follow(u.id)}}>
+                  onClick={() => {
+                    props.follow(u.id);
+                  }}
+                >
                   Follow
                 </button>
               )}
