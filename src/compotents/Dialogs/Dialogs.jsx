@@ -18,8 +18,7 @@ const Dialogs = (props) => {
     props.updateNewMassegeText(text);
   };
 
-
-  if(!props.isAuth) return <Redirect to={"/login"}/>
+  if (!props.isAuth) return <Redirect to={"/login"} />;
   return (
     <div>
       <div className={s.dialogs}>
@@ -30,7 +29,7 @@ const Dialogs = (props) => {
             <textarea
               onChange={onPostChange}
               name="newMassegeText"
-              cols="50"
+              cols="50"wada
               rows="2"
               placeholder="Enter your massege"
               value={state.newMassegeText}
