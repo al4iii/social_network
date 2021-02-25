@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { compose } from "redux";
 import Myself from "./Myself";
 
 let mapStateToProps = (state) => {
@@ -7,6 +8,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-const MyselfContainer = connect(mapStateToProps, {})(Myself);
-
-export default MyselfContainer;
+export default compose(connect(mapStateToProps, {}))(Myself);

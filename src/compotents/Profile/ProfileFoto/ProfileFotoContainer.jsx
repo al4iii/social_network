@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { compose } from "redux";
 import ProfileFoto from "./ProfileFoto";
 
 let mapStateToProps = (state) => {
@@ -7,6 +8,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-const ProfileFotoContainer = connect(mapStateToProps, {})(ProfileFoto);
-
-export default ProfileFotoContainer;
+export default compose(connect(mapStateToProps, {}))(ProfileFoto);
