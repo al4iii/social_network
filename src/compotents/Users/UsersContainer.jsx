@@ -61,7 +61,7 @@ const UsersContainer = connect(mapStateToProps, {
   getUsers,
   getUsersOnPageChanged,
   follow,
-  unfollow,  
+  unfollow,
 })(UsersComponer);
 
 export default UsersContainer;
