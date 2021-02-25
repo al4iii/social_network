@@ -10,6 +10,7 @@ import NavbarContainer from "./compotents/Navbar/NavbarContainer";
 import UsersContainer from "./compotents/Users/UsersContainer";
 import ProfileConteiner from "./compotents/Profile/ProfileConteiner";
 import HeaderContainer from "./compotents/Header/HeaderContainer";
+import Login from "./compotents/Login/Login";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route exact path="/setting" render={() => <Setting />} />
         <Route exact path="/friends" render={() => <Friends />} />
         <Route exact path="/users" render={() => <UsersContainer />} />
+        <Route exact path="/login" render={() => <Login />} />
       </div>
     </div>
   );
