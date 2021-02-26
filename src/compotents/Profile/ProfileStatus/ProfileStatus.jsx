@@ -23,7 +23,14 @@ class ProfileStatus extends React.Component {
     });
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.status !== this.props.status) {
+      this.setState({});
+    }
+  }
+
   render() {
+    console.log("222");
     return (
       <div>
         {!this.state.editMofe && (
