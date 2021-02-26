@@ -1,8 +1,9 @@
-import { API } from "../api/api";
+import { profileAPI } from "../api/api";
 
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USERS_PROFILE = "SET_USERS_PROFILE";
+const SET_STATUS = "SET_STATUS";
 
 let initialState = {
   posts: [
@@ -55,6 +56,7 @@ let initialState = {
     "https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300",
   newPostText: "",
   profile: null,
+  status: "hello",
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -82,6 +84,11 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         profile: action.profile,
       };
+    case SET_STATUS:
+      return {
+        ...state,
+        status: action.status,
+      };
     default:
       return state;
   }
@@ -92,18 +99,35 @@ export const setUserProfile = (profile) => ({
   type: SET_USERS_PROFILE,
   profile,
 });
+export const setStatus = (status) => ({
+  type: SET_STATUS,
+  status,
+});
 export const updateNewPostText = (text) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: text,
 });
 
-
 export const getProfile = (userId) => {
-  return (dispatch) => 
-API.getProfile(userId).then((response) => {
-  dispatch(setUserProfile(response));
-});
+  return (dispatch) =>
+    profileAPI.getProfile(userId).then((response) => {
+      dispatch(setUserProfile(response));
+    });
 };
-
+export const getStatus = (userId) => {
+  return (dispatch) =>
+    profileAPI.getStatus(userId).then((response) => {
+     
+      dispatch(setStatus(response));
+    });
+};
+export const updateStatus = (status) => {
+  return (dispatch) =>
+    profileAPI.updateStatus(status).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(setStatus(status));
+      }
+    });
+};
 
 export default profileReducer;

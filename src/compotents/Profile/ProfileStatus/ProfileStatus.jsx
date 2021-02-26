@@ -3,6 +3,7 @@ import React from "react";
 class ProfileStatus extends React.Component {
   state = {
     editMofe: false,
+    status: this.props.status,
   };
 
   activateEditMofe = () => {
@@ -14,14 +15,21 @@ class ProfileStatus extends React.Component {
     this.setState({
       editMofe: false,
     });
+    this.props.updateStatus(this.state.status);
   };
+  onStatusChenge = (e) => {
+    this.setState({
+      status: e.currentTarget.value,
+    });
+  };
+
   render() {
     return (
       <div>
         {!this.state.editMofe && (
           <div>
-            Status:
-            <span onDoubleClick={this.activateEditMofe}>
+            My status:
+            <span onDoubleClick={this.activateEditMofe || "No status"}>
               {this.props.status}
             </span>
           </div>
@@ -30,9 +38,10 @@ class ProfileStatus extends React.Component {
           <div>
             Enter status
             <input
+              onChange={this.onStatusChenge}
               autoFocus={true}
               onBlur={this.deActivateEditMofe}
-              value={this.props.status}
+              value={this.state.status}
             ></input>
           </div>
         )}

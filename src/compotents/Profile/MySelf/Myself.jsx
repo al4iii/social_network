@@ -16,7 +16,7 @@ const Myself = (props) => {
         <div className={s.profile}>
           <p>{props.profile.fullName}</p>
           <p>Status: {props.profile.aboutMe} </p>
-          <ProfileStatus status={"i am best of the best"} />
+          <ProfileStatus status={props.status}  updateStatus={props.updateStatus}/>
         </div>
       </div>
     </div>

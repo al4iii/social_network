@@ -8,7 +8,11 @@ const Profile = (props) => {
   return (
     <div>
       {/* <ProfileFotoContainer /> */}
-      <MyselfContainer profile={props.profile} />
+      <MyselfContainer
+        profile={props.profile}
+        status={props.status}
+        updateStatus={props.updateStatus}
+      />
       <MyPostsContainer profile={props.profile} />
     </div>
   );
