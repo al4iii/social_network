@@ -1,6 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import Preloader from "../../../Common/Preloader/Preloader";
+import ProfileStatus from "../ProfileStatus/ProfileStatus";
 import s from "./Myself.module.css";
 
 const Myself = (props) => {
@@ -16,6 +16,7 @@ const Myself = (props) => {
         <div className={s.profile}>
           <p>{props.profile.fullName}</p>
           <p>Status: {props.profile.aboutMe} </p>
+          <ProfileStatus status={"i am best of the best"} />
         </div>
       </div>
     </div>
