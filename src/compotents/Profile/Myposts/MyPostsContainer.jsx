@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { addPost, updateNewPostText } from "../../../redux/profile-reducer";
+import { addPost } from "../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
 
 let mapStateToProps = (state) => {
@@ -9,10 +9,10 @@ let mapStateToProps = (state) => {
     newPostText: state.prolifePage.newPostText,
   };
 };
+let mapStateToState = (dispatch) => {
+  return {
+    addPost: (newPost) => dispatch(addPost(newPost)),
+  };
+};
 
-export default compose(
-  connect(mapStateToProps, {
-    addPost,
-    updateNewPostText,
-  })
-)(MyPosts);
+export default compose(connect(mapStateToProps, mapStateToState))(MyPosts);

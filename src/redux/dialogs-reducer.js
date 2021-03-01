@@ -1,5 +1,4 @@
 const ADD_MASSEGE = "ADD-MASSEGE";
-const UPDATE_NEW_MASSEGE_TEXT = "UPDATE-NEW-MASSEGE-TEXT";
 
 let initialState = {
   dialog: [
@@ -16,33 +15,25 @@ let initialState = {
     { id: 4, maseege: "Yo" },
     { id: 5, maseege: "Yo" },
   ],
-  newMassegeText: "",
 };
 
-const dialogsReducer = (state = initialState, action) => {  
+const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MASSEGE:
-      let newMassege = state.newMassegeText;
-      let massege = { id: 10, maseege: newMassege }
+      let newMassege = action.newMassegeText;
+      let massege = { id: 10, maseege: newMassege };
       return {
         ...state,
-        newMassegeText: "",
         maseeges: [...state.maseeges, massege],
-      };
-    case UPDATE_NEW_MASSEGE_TEXT:
-      return {
-        ...state,
-        newMassegeText: action.newText,
-      };
+      };    
     default:
       return state;
   }
 };
 
-export const addNewMassege = () => ({ type: ADD_MASSEGE });
-export const updateNewMassegeText = (text) => ({
-  type: UPDATE_NEW_MASSEGE_TEXT,
-  newText: text,
+export const sendMassege = (newMassegeText) => ({
+  type: ADD_MASSEGE,
+  newMassegeText,
 });
 
 export default dialogsReducer;

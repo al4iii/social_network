@@ -1,7 +1,6 @@
 import { profileAPI } from "../api/api";
 
 const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USERS_PROFILE = "SET_USERS_PROFILE";
 const SET_STATUS = "SET_STATUS";
 
@@ -54,7 +53,6 @@ let initialState = {
   },
   profileFoto:
     "https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300",
-  newPostText: "",
   profile: null,
   status: "hello",
 };
@@ -64,20 +62,14 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST:
       let post = {
         id: 5,
-        maseege: state.newPostText,
+        maseege: action.newPost,
         likesCount: 0,
         avatarforo:
           "https://vokrug.tv/pic/news/6/4/8/2/6482f7af3bdb876ded2e755c5b37bc90.jpg",
       };
       return {
         ...state,
-        newPostText: "",
         posts: [...state.posts, post],
-      };
-    case UPDATE_NEW_POST_TEXT:
-      return {
-        ...state,
-        newPostText: action.newText,
       };
     case SET_USERS_PROFILE:
       return {
@@ -94,7 +86,7 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPost = () => ({ type: ADD_POST });
+export const addPost = (newPost) => ({ type: ADD_POST, newPost });
 export const setUserProfile = (profile) => ({
   type: SET_USERS_PROFILE,
   profile,
@@ -102,10 +94,6 @@ export const setUserProfile = (profile) => ({
 export const setStatus = (status) => ({
   type: SET_STATUS,
   status,
-});
-export const updateNewPostText = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: text,
 });
 
 export const getProfile = (userId) => {
@@ -117,7 +105,6 @@ export const getProfile = (userId) => {
 export const getStatus = (userId) => {
   return (dispatch) =>
     profileAPI.getStatus(userId).then((response) => {
-     
       dispatch(setStatus(response));
     });
 };

@@ -1,8 +1,32 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import { Field, reduxForm } from "redux-form";
 import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 import Maseege from "./Massege/Massege";
+
+const AddMessegeForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <div>
+        <Field
+          component={"textarea"}
+          name={"newMassegeText"}
+          cols={"50"}
+          rows={"2"}
+          placeholder={"Enter your massege"}
+        />
+      </div>
+      <div>
+        <button>send</button>
+      </div>
+    </form>
+  );
+};
+
+const AddMessageReduxForm = reduxForm({ form: "dialogAddMessageForm" })(
+  AddMessegeForm
+);
 
 const Dialogs = (props) => {
   let state = props.dialogsPage;
@@ -12,12 +36,9 @@ const Dialogs = (props) => {
   let maseegesElements = state.maseeges.map((m) => (
     <Maseege maseege={m.maseege} key={m.id} />
   ));
-  let addNewMassege = () => props.addNewMassege();
-  let onPostChange = (e) => {
-    let text = e.target.value;
-    props.updateNewMassegeText(text);
+  let addNewMassege = (values) => {
+    props.sendMassege(values.newMassegeText);
   };
-
   if (!props.isAuth) return <Redirect to={"/login"} />;
   return (
     <div>
@@ -25,19 +46,7 @@ const Dialogs = (props) => {
         <div className={s.dialogsItems}>{dialogElements}</div>
         <div className={s.maseeges}>{maseegesElements}</div>
         <div className={s.enter}>
-          <div>
-            <textarea
-              onChange={onPostChange}
-              name="newMassegeText"
-              cols="50"wada
-              rows="2"
-              placeholder="Enter your massege"
-              value={state.newMassegeText}
-            />
-          </div>
-          <div className={s.input}>
-            <button onClick={addNewMassege}>send</button>
-          </div>
+          <AddMessageReduxForm onSubmit={addNewMassege} />
         </div>
       </div>
     </div>
