@@ -5,6 +5,7 @@ import { Field, reduxForm } from "redux-form";
 import { Input } from "../../Common/FormsControls/FormsControls";
 import { maxLengthCreator, required } from "../../utils/validators/validator";
 import { Redirect } from "react-router-dom";
+import styles from "../../Common/FormsControls/FormsControls.module.css";
 
 const maxLength10 = maxLengthCreator(10);
 
@@ -29,14 +30,12 @@ const LoginForm = (props) => {
         />
       </div>
       <div>
-        <Field
-          component={Input}
-          name={"rememberMe"}
-          type={"checkbox"}
-         
-        />{" "}
+        <Field component={Input} name={"rememberMe"} type={"checkbox"} />{" "}
         remember me
       </div>
+      {props.error && (
+        <div className={styles.formSummeryError}>{props.error}</div>
+      )}
       <div>
         <button>Login</button>
       </div>
@@ -53,7 +52,6 @@ const Login = (props) => {
   if (props.isAuth) {
     return <Redirect to={"/profile"} />;
   }
-
   return (
     <div>
       <h1>Login</h1>
