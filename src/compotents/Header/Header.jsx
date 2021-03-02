@@ -12,14 +12,17 @@ const Header = (props) => {
         <h1>ENcounter</h1>
         <img src="./../maxresdefault.jpg" />
         {props.isAuth ? (
-          <NavLink to="/login" className={s.login_block}>Привет, {props.login}!!</NavLink>
+          <div>
+            <NavLink to="/login" className={s.login_block}>
+              Hello, {props.login}<button onClick={props.logOut}>Log out </button>
+            </NavLink>
+          </div>
         ) : (
           <NavLink to="/login" className={s.login_block}>
             Login
           </NavLink>
         )}
       </NavLink>
-      
     </header>
   );
 };
