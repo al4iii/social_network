@@ -1,16 +1,21 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
+import { Textarea } from "../../Common/FormsControls/FormsControls";
+import { maxLengthCreator, required } from "../../utils/validators/validator";
 import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 import Maseege from "./Massege/Massege";
+
+const maxLength50 = maxLengthCreator(50);
 
 const AddMessegeForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
         <Field
-          component={"textarea"}
+          component={Textarea}
+          validate={[required, maxLength50]}
           name={"newMassegeText"}
           cols={"50"}
           rows={"2"}
