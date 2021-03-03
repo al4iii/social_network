@@ -19,7 +19,6 @@ const appReducer = (state = initialState, action) => {
 };
 
 export const initialiazedSuccese = () => ({ type: INITIALIAZED_SUCCESS });
-
 export const initialiazeApp = () => (dispatch) => {
   let promise = dispatch(getAuthMeData());
   Promise.all([promise])
@@ -27,3 +26,13 @@ export const initialiazeApp = () => (dispatch) => {
 };
 
 export default appReducer;
+
+
+
+
+
+
+
+
+
+

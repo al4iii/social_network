@@ -24,7 +24,6 @@ class App extends React.Component {
     if (!this.props.initialiazed) {
       return <Preloader />;
     }
-
     return (
       <div className="app-wrapper">
         <HeaderContainer />
