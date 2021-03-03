@@ -7,3 +7,4 @@ export const getFollowingInProgress = (state) =>
 export const getToggleFollowingInProgress = (state) =>
   state.usersPage.toggleFollowingInProgress;
 export const getUsers = (state) => state.usersPage.users;
+
