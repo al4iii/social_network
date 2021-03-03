@@ -4,7 +4,7 @@ import { authAPI } from "../api/api";
 const SET_USER_DATA = "SET_USER_DATA";
 
 let initialState = {
-  id: null,
+  userId: null,
   login: null,
   email: null,
   isFetching: false,
@@ -23,20 +23,18 @@ const authReducer = (state = initialState, action) => {
   }
 };
 
-export const setAuthUserData = (userId, email, login, isAuth) => ({
+export const setAuthUserData = (userId, login, email, isAuth) => ({
   type: SET_USER_DATA,
-  payload: { userId, email, login, isAuth },
+  payload: { userId, login, email, isAuth },
 });
 
-export const getAuthMeData = () => {
-  return (dispatch) => {
-    authAPI.me().then((response) => {
-      if (response.resultCode === 0) {
-        let { id, login, email } = response.data;
-        dispatch(setAuthUserData(email, id, login, true));
-      }
-    });
-  };
+export const getAuthMeData = () => (dispatch) => {
+  return authAPI.me().then((response) => {
+    if (response.resultCode === 0) {
+      let { id, login, email } = response.data;
+      dispatch(setAuthUserData(id, login, email, true));
+    }
+  });
 };
 
 export const login = (email, password, rememberMe) => {

@@ -13,7 +13,6 @@ import {
 } from "../../redux/users-reduser";
 import Users from "./Users";
 import Preloader from "../../Common/Preloader/Preloader";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
 
 class UsersComponer extends React.Component {
@@ -65,6 +64,5 @@ export default compose(
     getUsersOnPageChanged,
     follow,
     unfollow,
-  }),
-  withAuthRedirect
+  })
 )(UsersComponer);

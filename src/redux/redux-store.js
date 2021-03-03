@@ -5,7 +5,8 @@ import navbarReduce from "./navbar-reducer";
 import usersReducer from "./users-reduser";
 import authReducer from "./auth-reduser";
 import thunkMiddleware from "redux-thunk";
-import {reducer as formReducer} from 'redux-form';
+import { reducer as formReducer } from "redux-form";
+import appReducer from "./app-reduser";
 
 let reducers = combineReducers({
   prolifePage: profileReducer,
@@ -13,7 +14,8 @@ let reducers = combineReducers({
   navbarPage: navbarReduce,
   usersPage: usersReducer,
   auth: authReducer,
-  form: formReducer
+  form: formReducer,
+  app: appReducer,
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));
