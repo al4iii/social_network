@@ -11,22 +11,44 @@ class Users extends React.Component {
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
       pages.push(i);
-
-      
     }
     return (
       <div>
-        <div>
-          {pages.map((p) => {
-            return (
-              <span
-                className={`${this.props.currentPage === p && style.selectedPage}
-               ${style.spanPage} `}
-                onClick={(e) => this.props.onPageChanged(p)}
-              >
-                {p}
-              </span>
-            );
+        <div className ={style.number}>
+          {pages.map((p, key) => {
+            if (key < 3) {
+              return (
+                <span
+                  className={`${
+                    this.props.currentPage === p && style.selectedPage
+                  }
+                 ${style.spanPage} `}
+                  onClick={(e) => this.props.onPageChanged(p)}
+                >
+                  {p}
+                </span>
+              );
+            }
+          })}
+          {pages.map((key) => {
+            if (key === 3) {
+              return <span>...</span>;
+            }
+          })}
+          {pages.map((p, key) => {
+            if (key > 101) {
+              return (
+                <span
+                  className={`${
+                    this.props.currentPage === p && style.selectedPage
+                  }
+                 ${style.spanPage} `}
+                  onClick={(e) => this.props.onPageChanged(p)}
+                >
+                  {p}
+                </span>
+              );
+            }
           })}
         </div>
         {this.props.users.map((u) => (
@@ -49,7 +71,7 @@ class Users extends React.Component {
                     )}
                     onClick={() => {
                       this.props.unfollow(u.id);
-                      this.forceUpdate()
+                      this.forceUpdate();
                     }}
                   >
                     Unfollow
@@ -61,7 +83,7 @@ class Users extends React.Component {
                     )}
                     onClick={() => {
                       this.props.follow(u.id);
-                      this.forceUpdate()
+                      this.forceUpdate();
                     }}
                   >
                     Follow

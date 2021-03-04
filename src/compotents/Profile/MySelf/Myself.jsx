@@ -3,16 +3,17 @@ import Preloader from "../../../Common/Preloader/Preloader";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
 import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
 import s from "./Myself.module.css";
+import imgLogo from "../../../img/1220.jpg";
 
 const Myself = (props) => {
+  debugger;
   if (!props.profile) {
     return <Preloader />;
   }
-
   return (
     <div>
       <div className={s.myself}>
-        <img src={props.profile.photos.large} />
+        <img src={props.profile.photos.large || imgLogo} />
         <div className={s.img}></div>
         <div className={s.profile}>
           <p>{props.profile.fullName}</p>
