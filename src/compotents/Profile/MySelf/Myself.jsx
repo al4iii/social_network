@@ -3,7 +3,7 @@ import Preloader from "../../../Common/Preloader/Preloader";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
 import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
 import s from "./Myself.module.css";
-import imgLogo from "../../../img/1220.jpg";
+import imgLogo from "../../../img/amanim.jpg";
 
 const Myself = (props) => {
   debugger;
@@ -13,7 +13,7 @@ const Myself = (props) => {
   return (
     <div>
       <div className={s.myself}>
-        <img src={props.profile.photos.large || imgLogo} />
+        <img className={s.avatarPhoto} src={props.profile.photos.large || imgLogo} />
         <div className={s.img}></div>
         <div className={s.profile}>
           <p>{props.profile.fullName}</p>
