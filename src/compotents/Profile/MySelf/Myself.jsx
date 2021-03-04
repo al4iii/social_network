@@ -6,7 +6,6 @@ import s from "./Myself.module.css";
 import imgLogo from "../../../img/amanim.jpg";
 
 const Myself = (props) => {
-  debugger;
   if (!props.profile) {
     return <Preloader />;
   }

@@ -30,7 +30,8 @@ const AddNewPost = (props) => {
 
 const AddPostReduxForm = reduxForm({ form: "AddPostForm" })(AddNewPost);
 
-const MyPosts = (props) => {
+const MyPosts = React.memo((props) => {
+  console.log("render");
   let postsElement = props.posts.map((p) => (
     <Post
       message={p.maseege}
@@ -52,6 +53,5 @@ const MyPosts = (props) => {
       <div>{postsElement}</div>
     </div>
   );
-};
-
+});
 export default MyPosts;
