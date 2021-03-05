@@ -37,7 +37,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  padding-right: 40px;
+  padding-right: 20px;
 }
 
 .maseeges {
@@ -50,8 +50,15 @@
   padding: 15px 50px 10px;
 }
 
-.textarea {
-  padding: 25px;
+.button {
+  padding-top: 15px;
   display: flex;
   justify-content: flex-end;
+}
+
+.buttonSend {
+  background-color: #83bb75;
+  border-radius: 15px;
+  width: 70px;
+  height: 25px;
 }

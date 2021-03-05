@@ -11,21 +11,23 @@ const maxLength50 = maxLengthCreator(50);
 
 const AddMessegeForm = (props) => {
   return (
-    <form onSubmit={props.handleSubmit}>
-      <div>
-        <Field
-          component={Textarea}
-          validate={[required, maxLength50]}
-          name={"newMassegeText"}
-          cols={"50"}
-          rows={"2"}
-          placeholder={"Enter your massege"}
-        />
-      </div>
-      <div>
-        <button>send</button>
-      </div>
-    </form>
+    <div className={s.enter}>
+      <form onSubmit={props.handleSubmit}>
+        <div>
+          <Field
+            component={Textarea}
+            validate={[required, maxLength50]}
+            name={"newMassegeText"}
+            cols={"50"}
+            rows={"2"}
+            placeholder={"Enter your massege"}
+          />
+        </div>
+        <div className={s.button}>
+          <button className={s.buttonSend}>send</button>
+        </div>
+      </form>
+    </div>
   );
 };
 

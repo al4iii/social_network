@@ -16,7 +16,7 @@ const Myself = (props) => {
         <div className={s.img}></div>
         <div className={s.profile}>
           <p>{props.profile.fullName}</p>
-          <p>Status: {props.profile.aboutMe} </p>
+          <p > {props.profile.aboutMe} </p>
           <ProfileStatusWithHooks
             status={props.status}
             updateStatus={props.updateStatus}

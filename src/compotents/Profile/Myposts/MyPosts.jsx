@@ -32,14 +32,16 @@ const AddPostReduxForm = reduxForm({ form: "AddPostForm" })(AddNewPost);
 
 const MyPosts = React.memo((props) => {
   console.log("render");
-  let postsElement = props.posts.map((p) => (
-    <Post
-      message={p.maseege}
-      key={p.id}
-      likesCount={p.likesCount}
-      avatarforo={p.avatarforo}
-    />
-  ));
+  let postsElement = [...props.posts]
+    .reverse()
+    .map((p) => (
+      <Post
+        message={p.maseege}
+        key={p.id}
+        likesCount={p.likesCount}
+        avatarforo={p.avatarforo}
+      />
+    ));
   const addNewPost = (values) => {
     props.addPost(values.newPost);
   };

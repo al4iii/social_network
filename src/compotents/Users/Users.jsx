@@ -14,11 +14,12 @@ class Users extends React.Component {
     }
     return (
       <div>
-        <div className ={style.number}>
+        <div className={style.number}>
           {pages.map((p, key) => {
             if (key < 3) {
               return (
                 <span
+                  key={p.id}
                   className={`${
                     this.props.currentPage === p && style.selectedPage
                   }
@@ -36,9 +37,10 @@ class Users extends React.Component {
             }
           })}
           {pages.map((p, key) => {
-            if (key > 101) {
+            if (key > 698) {
               return (
                 <span
+                  key={p.id}
                   className={`${
                     this.props.currentPage === p && style.selectedPage
                   }
@@ -98,9 +100,7 @@ class Users extends React.Component {
               </span>
               <span className={style.location}>
                 <div>{"Mogilev"} </div>
-                {/* {"u.location.city"} */}
                 <div> {"Belarus"} </div>
-                {/* {"u.location.contry"} */}
               </span>
             </span>
           </div>
