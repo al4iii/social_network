@@ -1,4 +1,4 @@
-const ADD_MASSEGE = "ADD-MASSEGE";
+const ADD_MASSEGE = "dialogs/ADD-MASSEGE";
 
 let initialState = {
   dialog: [
@@ -25,15 +25,12 @@ const dialogsReducer = (state = initialState, action) => {
       return {
         ...state,
         maseeges: [...state.maseeges, massege],
-      };    
+      };
     default:
       return state;
   }
 };
 
-export const sendMassege = (newMassegeText) => ({
-  type: ADD_MASSEGE,
-  newMassegeText,
-});
+export const sendMassege = (newMassegeText) => ({ type: ADD_MASSEGE, newMassegeText,});
 
 export default dialogsReducer;

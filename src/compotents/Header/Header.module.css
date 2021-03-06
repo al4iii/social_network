@@ -28,14 +28,13 @@
   height: 30px;
   background-color: #83bb75;
   border-radius: 15px;
-  
 }
 
-.login{
+.login {
   display: grid;
   grid-template-rows: 50px 1fr;
 }
 
-.login_block{
-padding-top: 15px ;
+.login_block {
+  padding-top: 15px;
 }

@@ -12,7 +12,6 @@ const ProfileStatusWithHooks = (props) => {
     props.updateStatus(status);
   };
   const onStatusChenge = (e) => setStatus(e.currentTarget.value);
-
   return (
     <div>
       {!editMode && (

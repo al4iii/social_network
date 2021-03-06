@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Profile.module.css";
 import MyPostsContainer from "./Myposts/MyPostsContainer";
 import MyselfContainer from "./MySelf/MyselfContainer";
-import ProfileFotoContainer from "./ProfileFoto/ProfileFotoContainer";
 
 const Profile = (props) => {
   return (
-    <div>
-      {/* <ProfileFotoContainer /> */}
+    <div>      
       <MyselfContainer
         profile={props.profile}
         status={props.status}

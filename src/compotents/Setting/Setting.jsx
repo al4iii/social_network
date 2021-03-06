@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import s from "./Setting.module.css";
+import styles from "./Setting.module.css";
 
-const Setting = (props) => {
-  return <div className={s.h1}>Setting</div>;
+const Setting = () => {
+  return <div className={styles.h1}>Setting</div>;
 };
 
 export default Setting;

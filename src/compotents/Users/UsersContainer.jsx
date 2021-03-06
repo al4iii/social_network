@@ -25,10 +25,12 @@ import {
 
 class UsersComponer extends React.Component {
   componentDidMount() {
-    this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+    const { currentPage, pageSize } = this.props;
+    this.props.requestUsers(currentPage, pageSize);
   }
   onPageChanged = (pageNumber) => {
-    this.props.getUsersOnPageChanged(pageNumber, this.props.pageSize);
+    const { getUsersOnPageChanged, pageSize } = this.props;
+    getUsersOnPageChanged(pageNumber, pageSize);
   };
   render() {
     return (

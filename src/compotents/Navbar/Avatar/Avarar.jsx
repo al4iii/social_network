@@ -1,12 +1,12 @@
 import React from "react";
-import s from "./Avatar.module.css";
+import styles from "./Avatar.module.css";
 
-const Avarar = (props) => {
+const Avarar = ({ avatarforo, name }) => {
   return (
     <div>
-      <div className={s.item}>
-        <img src={props.avatarforo} />
-        <span>{props.name}</span>
+      <div className={styles.item}>
+        <img src={avatarforo} />
+        <span>{name}</span>
       </div>
     </div>
   );

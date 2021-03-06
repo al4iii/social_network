@@ -1,27 +1,29 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
-import { Textarea } from "../../../Common/FormsControls/FormsControls";
+import { reduxForm } from "redux-form";
+import {
+  createField,
+  Textarea,
+} from "../../../Common/FormsControls/FormsControls";
 import {
   maxLengthCreator,
   required,
 } from "../../../utils/validators/validator";
-import s from "./MyPosts.module.css";
+import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const maxLength10 = maxLengthCreator(10);
-
-const AddNewPost = (props) => {
+const maxLength100 = maxLengthCreator(100);
+const AddNewPost = ({ handleSubmit }) => {
   return (
-    <form onSubmit={props.handleSubmit}>
-      <Field
-        component={Textarea}
-        validate={[required, maxLength10]}
-        name={"newPost"}
-        cols={"80"}
-        rows={"2"}
-        placeholder={"Enter your message"}
-      />
-      <div className={s.input}>
+    <form onSubmit={handleSubmit}>
+      {createField(
+        "Enter your massege",
+        "newPost",
+        [required, maxLength100],
+        Textarea,
+        "40",
+        "3"
+      )}
+      <div className={styles.input}>
         <button>add post</button>
       </div>
     </form>
@@ -29,9 +31,7 @@ const AddNewPost = (props) => {
 };
 
 const AddPostReduxForm = reduxForm({ form: "AddPostForm" })(AddNewPost);
-
 const MyPosts = React.memo((props) => {
-  console.log("render");
   let postsElement = [...props.posts]
     .reverse()
     .map((p) => (
@@ -42,13 +42,10 @@ const MyPosts = React.memo((props) => {
         avatarforo={p.avatarforo}
       />
     ));
-  const addNewPost = (values) => {
-    props.addPost(values.newPost);
-  };
-
+  const addNewPost = (values) => props.addPost(values.newPost);
   return (
     <div>
-      <div className={s.posts}>
+      <div className={styles.posts}>
         <h2>My post</h2>
       </div>
       <AddPostReduxForm onSubmit={addNewPost} />
@@ -56,4 +53,5 @@ const MyPosts = React.memo((props) => {
     </div>
   );
 });
+
 export default MyPosts;

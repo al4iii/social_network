@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { login, logOut } from "../../redux/auth-reduser";
 import { Field, reduxForm } from "redux-form";
-import { Input } from "../../Common/FormsControls/FormsControls";
+import { createField, Input } from "../../Common/FormsControls/FormsControls";
 import { maxLengthCreator, required } from "../../utils/validators/validator";
 import { Redirect } from "react-router-dom";
 import styles from "../../Common/FormsControls/FormsControls.module.css";
@@ -12,30 +12,10 @@ const maxLength10 = maxLengthCreator(10);
 const LoginForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
-      <div>
-        <Field
-          component={Input}
-          placeholder={"email"}
-          name={"email"}
-          validate={[required]}
-        />
-      </div>
-      <div>
-        <Field
-          component={Input}
-          placeholder={"Password"}
-          name={"password"}
-          type={"password"}
-          validate={[required, maxLength10]}
-        />
-      </div>
-      <div>
-        <Field component={Input} name={"rememberMe"} type={"checkbox"} />{" "}
-        remember me
-      </div>
-      {props.error && (
-        <div className={styles.formSummeryError}>{props.error}</div>
-      )}
+      {createField ("email", "email" , [required], Input,null,null)}
+      {createField ("Password", "password" , [required, maxLength10], Input,null,null, {type: "password"})}
+      {createField (null, "rememberMe" , [], Input,null,null, {type: "checkbox"}, "remember me")}
+      {props.error && <div className={styles.formSummeryError}>{props.error}</div>}
       <div>
         <button>Login</button>
       </div>

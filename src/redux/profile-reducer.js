@@ -1,10 +1,9 @@
 import { profileAPI } from "../api/api";
 
-const ADD_POST = "ADD-POST";
-const SET_USERS_PROFILE = "SET_USERS_PROFILE";
-const SET_STATUS = "SET_STATUS";
-const DETELE_POST = "DETELE_POST";
-
+const ADD_POST = "profile/ADD-POST";
+const SET_USERS_PROFILE = "profile/SET_USERS_PROFILE";
+const SET_STATUS = "profile/SET_STATUS";
+const DETELE_POST = "profile/DETELE_POST";
 
 let initialState = {
   posts: [
@@ -86,7 +85,7 @@ const profileReducer = (state = initialState, action) => {
     case DETELE_POST:
       return {
         ...state,
-        posts: [...state.posts.filter(p=> p.postId != action.postId)],
+        posts: [...state.posts.filter((p) => p.postId != action.postId)],
       };
     default:
       return state;
@@ -102,31 +101,24 @@ export const setStatus = (status) => ({
   type: SET_STATUS,
   status,
 });
-
 export const deletePost = (postId) => ({
   type: DETELE_POST,
   postId,
 });
 
-export const getProfile = (userId) => {
-  return (dispatch) =>
-    profileAPI.getProfile(userId).then((response) => {
-      dispatch(setUserProfile(response));
-    });
+export const getProfile = (userId) => async (dispatch) => {
+  let response = await profileAPI.getProfile(userId);
+  dispatch(setUserProfile(response));
 };
-export const getStatus = (userId) => {
-  return (dispatch) =>
-    profileAPI.getStatus(userId).then((response) => {
-      dispatch(setStatus(response));
-    });
+export const getStatus = (userId) => async (dispatch) => {
+  let response = await profileAPI.getStatus(userId);
+  dispatch(setStatus(response));
 };
-export const updateStatus = (status) => {
-  return (dispatch) =>
-    profileAPI.updateStatus(status).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(setStatus(status));
-      }
-    });
+export const updateStatus = (status) => async (dispatch) => {
+  let response = await profileAPI.updateStatus(status);
+  if (response.data.resultCode === 0) {
+    dispatch(setStatus(status));
+  }
 };
 
 export default profileReducer;

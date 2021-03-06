@@ -30,11 +30,7 @@ class App extends React.Component {
         <NavbarContainer />
         <div className="app-wrapper-content">
           <Route exact path="/dialogs" render={() => <DialogsContainer />} />
-          <Route
-            exact
-            path="/profile/:userId?"
-            render={() => <ProfileConteiner />}
-          />
+          <Route exact path="/profile/:userId?" render={() => <ProfileConteiner />} />
           <Route exact path="/news" render={() => <News />} />
           <Route exact path="/music" render={() => <Music />} />
           <Route exact path="/setting" render={() => <Setting />} />

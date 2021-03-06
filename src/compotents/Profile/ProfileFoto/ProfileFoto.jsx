@@ -1,10 +1,9 @@
 import React from "react";
-import s from "./ProfileFoto.module.css";
+import styles from "./ProfileFoto.module.css";
 
-const ProfileFoto = (props) => {
-  let profileFoto = props.profileFoto;
+const ProfileFoto = ({ profileFoto }) => {
   return (
-    <div className={s.img}>
+    <div className={styles.img}>
       <img src={profileFoto} />
     </div>
   );
