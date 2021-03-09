@@ -1,11 +1,11 @@
 import React from "react";
 import preloader from "./../../img/Reload-1s-64px.svg";
 
-let Preloader = (props) => {
+let Preloader = () => {
   return (
-    <div>
+    <>
       <img src={preloader} />
-    </div>
+    </>
   );
 };
 
