@@ -1,5 +1,5 @@
 import React from "react";
-import Paginator from "./../Paginator/Paginator";
+import Paginator from "../Paginator/Paginator";
 import User from "./User";
 
 let Users = ({
@@ -17,7 +17,7 @@ let Users = ({
       <Paginator
         currentPage={currentPage}
         onPageChanged={onPageChanged}
-        totalUsersCount={totalUsersCount}
+        totalItemsCount={totalUsersCount}
         pageSize={pageSize}
       />
       <div>
