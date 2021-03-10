@@ -4,7 +4,7 @@ import News from "./compotents/News/News";
 import Music from "./compotents/Music/Music";
 import Setting from "./compotents/Setting/Setting";
 import Friends from "./compotents/Friends/Friends";
-import { Route, withRouter } from "react-router-dom";
+import { HashRouter, Route, withRouter } from "react-router-dom";
 import NavbarContainer from "./compotents/Navbar/NavbarContainer";
 import UsersContainer from "./compotents/Users/UsersContainer";
 import ProfileConteiner from "./compotents/Profile/ProfileConteiner";
@@ -51,11 +51,11 @@ let AppContainer = compose( withRouter, connect(mapStateToProps, {initialiazeApp
 const MyApp = () => {
   return (
     <React.StrictMode>
-      <BrowserRouter>
+      <HashRouter>
         <Provider store={store}>
           <AppContainer />
         </Provider>
-      </BrowserRouter>
+      </HashRouter>
     </React.StrictMode>
   );
 };
