@@ -61,7 +61,7 @@ let Paginator = ({
             setPortionNumber(portionNumber + 1);
           }}
         >
-          NEXT
+          NEXT 
         </button>
       )}
     </div>

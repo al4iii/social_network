@@ -4,9 +4,10 @@
 }
 
 .paginator{
-  margin: 10px
+  padding:  10px;
+  padding-left: 250px;
 }
 .pageNumber{
   padding:  2px;
-  border: 1px solid grey;
+ 
 }
