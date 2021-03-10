@@ -5,7 +5,7 @@ import navbarReduce from "./navbar-reducer";
 import usersReducer from "./users-reduser";
 import authReducer from "./auth-reduser";
 import thunkMiddleware from "redux-thunk";
-import { reducer as formReducer, reducer } from "redux-form";
+import { reducer as formReducer } from "redux-form";
 import appReducer from "./app-reduser";
 
 let reducers = combineReducers({
