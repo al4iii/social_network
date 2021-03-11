@@ -39,4 +39,8 @@ const ProfileDataForm = ({ handleSubmit ,profile, goToEditMode, error }) => {
 };
 
 const ProfileDataFormReduxForm = reduxForm({form:"edit-profile",})(ProfileDataForm)
+<<<<<<< HEAD
 export default ProfileDataFormReduxForm;
+=======
+export default ProfileDataFormReduxForm;
+>>>>>>> fix

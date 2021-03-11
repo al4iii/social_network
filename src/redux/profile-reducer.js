@@ -133,14 +133,22 @@ export const savePhoto = (file) => async (dispatch) => {
   if (response.data.resultCode === 0) {
     dispatch(savePhotoSuccess(response.data.data.photos));
   }
+<<<<<<< HEAD
 };
+=======
+}
+>>>>>>> fix
 export const saveProfile = (profile) => async (dispatch, getState) => {
   const userId = getState().auth.userId;
   let response = await profileAPI.saveProfile(profile);
   if (response.data.resultCode === 0) {
     dispatch(getProfile(userId));
   } else {
+<<<<<<< HEAD
     dispatch(stopSubmit("login", { _error: response.data.messages[0]}));
+=======
+    dispatch(stopSubmit("edit-profile", { _error: response.data.messages[0]}));
+>>>>>>> fix
   }
 };
 
