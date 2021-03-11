@@ -30,6 +30,9 @@ export const profileAPI = {
       },
     });
   },
+  saveProfile(profile) {
+    return instance.put(`/profile`, profile);
+  },
 };
 export const API = {
   getUsers(currentPage, pageSize) {
