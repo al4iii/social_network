@@ -2,7 +2,7 @@
   "name": "react-01",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://al4iii.github.io/social_network",
+  "homepage": "https://al4iii.github.io/social-network",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.4",
