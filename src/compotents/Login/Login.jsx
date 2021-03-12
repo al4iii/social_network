@@ -1,14 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { login, logOut } from "../../redux/auth-reduser";
-import { Field, reduxForm } from "redux-form";
+import { reduxForm } from "redux-form";
 import { createField, Input } from "../../Common/FormsControls/FormsControls";
 import { maxLengthCreator, required } from "../../utils/validators/validator";
 import { Redirect } from "react-router-dom";
 import styles from "../../Common/FormsControls/FormsControls.module.css";
 
 const maxLength10 = maxLengthCreator(10);
-
 const LoginForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
@@ -40,8 +39,6 @@ const Login = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  isAuth: state.auth.isAuth,
-});
+const mapStateToProps = (state) => ({isAuth: state.auth.isAuth});
 
 export default connect(mapStateToProps, { login, logOut })(Login);

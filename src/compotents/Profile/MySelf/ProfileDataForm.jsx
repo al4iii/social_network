@@ -8,7 +8,7 @@ const ProfileDataForm = ({ handleSubmit ,profile, goToEditMode, error }) => {
     <form className={styles.contact} onSubmit={handleSubmit}>
         {error && <div className={styles.formSummeryError}>{error}</div>}
       <div>
-        <button onClick={goToEditMode}>save</button>
+        
       </div>
       <div>
         <b>Full name:</b>
@@ -33,14 +33,11 @@ const ProfileDataForm = ({ handleSubmit ,profile, goToEditMode, error }) => {
             </div>
           );
         })}
+        <button onClick={goToEditMode}>save</button>
       </div>
     </form>
   );
 };
 
 const ProfileDataFormReduxForm = reduxForm({form:"edit-profile",})(ProfileDataForm)
-<<<<<<< HEAD
 export default ProfileDataFormReduxForm;
-=======
-export default ProfileDataFormReduxForm;
->>>>>>> fix

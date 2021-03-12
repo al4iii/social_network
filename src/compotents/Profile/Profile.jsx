@@ -4,7 +4,6 @@ import MyPostsContainer from "./Myposts/MyPostsContainer";
 import MyselfContainer from "./MySelf/MyselfContainer";
 
 const Profile = (props) => {
-  debugger
   return (
     <div>
       <MyselfContainer
