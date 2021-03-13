@@ -42,7 +42,7 @@ const Navbar = ({ navbarPage }) => {
       <div className={`${styles.item} ${styles.setting}`}>
         <NavLink to="/friends" activeClassName={styles.activeLink}>
           Friends
-          <div className={styles.item}>{friendsElement}</div>
+          {/* <div className={styles.item}>{friendsElement}</div> */}
         </NavLink>
       </div>
     </nav>

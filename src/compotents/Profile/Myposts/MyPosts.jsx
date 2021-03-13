@@ -8,16 +8,17 @@ import Post from "./Post/Post";
 const maxLength100 = maxLengthCreator(100);
 const AddNewPost = ({ handleSubmit }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.textarea}>
       {createField("Enter your massege", "newPost", [required, maxLength100], Textarea, "40","3" )}
       <div className={styles.input}>
-        <button>add post</button>
+        <button className={styles.button}>add post</button>
       </div>
     </form>
   );
 };
 
 const AddPostReduxForm = reduxForm({ form: "AddPostForm" })(AddNewPost);
+
 const MyPosts = React.memo((props) => {
   let postsElement = [...props.posts]
     .reverse()

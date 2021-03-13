@@ -11,9 +11,11 @@ const Header = ({ isAuth, login, logOut }) => {
         <img src={logo} />
       </NavLink>
       <NavLink to="/profile" className={styles.h1}>
-        <h1>ENcounter</h1>
-        <img src={logoforest} />
+        <h1>IT</h1>
+        {/* <img src={logoforest} /> */}
+        </NavLink>
         {isAuth ? (
+           
           <div className={styles.login}>
             <NavLink to="/login" className={styles.login_block}>
               Hello, {login}
@@ -21,13 +23,19 @@ const Header = ({ isAuth, login, logOut }) => {
             <button className={styles.button} onClick={logOut}>
               Log out
             </button>
+            
           </div>
         ) : (
-          <NavLink to="/login" className={styles.login_block}>
-            Login
+          <div className={styles.login_block}>
+            <NavLink to="/login" >
+            Sign in            
           </NavLink>
+            <div><a href="https://social-network.samuraijs.com/signUp" target="_blank" rel="noopener noreferrer">Sign up</a>  </div>
+          </div>
+          
+          
         )}
-      </NavLink>
+      
     </header>
   );
 };
