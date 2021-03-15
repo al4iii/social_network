@@ -1,7 +1,8 @@
 import { stopSubmit } from "redux-form";
-import { authAPI } from "../api/api";
+import { authAPI, securityAPI } from "../api/api";
 
 const SET_USER_DATA = "auth/SET_USER_DATA";
+const GET_CAPTCHA_URL_SUCCESS = "auth/GET_CAPTCHA_URL_SUCCESS";
 
 let initialState = {
   userId: null,
@@ -9,11 +10,13 @@ let initialState = {
   email: null,
   isFetching: false,
   isAuth: false,
+  captchaUrl: null,
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER_DATA:
+    case GET_CAPTCHA_URL_SUCCESS:
       return {
         ...state,
         ...action.payload,
@@ -27,6 +30,10 @@ export const setAuthUserData = (userId, login, email, isAuth) => ({
   type: SET_USER_DATA,
   payload: { userId, login, email, isAuth },
 });
+export const getCaptchaUrlSaccess = (captchaUrl) => ({
+  type: GET_CAPTCHA_URL_SUCCESS,
+  payload: { captchaUrl },
+});
 export const getAuthMeData = () => async (dispatch) => {
   let response = await authAPI.me();
   if (response.resultCode === 0) {
@@ -34,16 +41,24 @@ export const getAuthMeData = () => async (dispatch) => {
     dispatch(setAuthUserData(id, login, email, true));
   }
 };
-export const login = (email, password, rememberMe) => async (dispatch) => {
-  let response = await authAPI.login(email, password, rememberMe);
+export const getCaptchaUrl = () => async (dispatch) => {
+  const response = await securityAPI.getCaptchaUrl();
+  const captchaUrl = response.url;
+  dispatch(getCaptchaUrlSaccess(captchaUrl));
+};
+
+export const login = (email, password, rememberMe, captcha) => async (dispatch) => {
+  let response = await authAPI.login(email, password, rememberMe,captcha);
   if (response.resultCode === 0) {
     dispatch(getAuthMeData());
   } else {
-    let messege =
-      response.messages.length > 0 ? response.messages[0] : "Some error";
+    if (response.resultCode === 10) {     
+      dispatch(getCaptchaUrl());
+    }    let messege = response.messages.length > 0 ? response.messages[0] : "Some error";
     dispatch(stopSubmit("login", { _error: messege }));
   }
 };
+
 export const logOut = () => async (dispatch) => {
   let response = await authAPI.loginout();
   if (response.resultCode === 0) {
