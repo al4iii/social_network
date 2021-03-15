@@ -4,7 +4,7 @@ import News from "./compotents/News/News";
 import Music from "./compotents/Music/Music";
 import Setting from "./compotents/Setting/Setting";
 import Friends from "./compotents/Friends/Friends";
-import { HashRouter, Route, withRouter } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch, withRouter } from "react-router-dom";
 import NavbarContainer from "./compotents/Navbar/NavbarContainer";
 import UsersContainer from "./compotents/Users/UsersContainer";
 import ProfileConteiner from "./compotents/Profile/ProfileConteiner";
@@ -32,14 +32,18 @@ class App extends React.Component {
         <HeaderContainer />
         <NavbarContainer />
         <div className="app-wrapper-content">
-          <Route exact path="/dialogs" render={withSuspense(DialogsContainer)} />
-          <Route exact path="/profile/:userId?" render={() => <ProfileConteiner />} />
-          <Route exact path="/news" render={() => <News />} />
-          <Route exact path="/music" render={() => <Music />} />
-          <Route exact path="/setting" render={() => <Setting />} />
-          <Route exact path="/friends" render={() => <Friends />} />
-          <Route exact path="/users" render={() => <UsersContainer />} />
-          <Route exact path="/login" render={withSuspense(Login)} />
+          <Switch>
+            <Route exact path="/" render={() => <Redirect from={"/"} to ={'/profile'} />} />
+            <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
+            <Route path="/profile/:userId?" render={() => <ProfileConteiner />} />
+            <Route path="/news" render={() => <News />} />
+            <Route path="/music" render={() => <Music />} />
+            <Route path="/setting" render={() => <Setting />} />
+            <Route path="/friends" render={() => <Friends />} />
+            <Route path="/users" render={() => <UsersContainer />} />
+            <Route path="/login" render={withSuspense(Login)} />
+            <Route path="*" render={()=> <div> 404 not found</div>} />
+          </Switch>
         </div>
       </div>
     );

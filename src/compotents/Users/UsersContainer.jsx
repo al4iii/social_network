@@ -1,27 +1,12 @@
 import { connect } from "react-redux";
 import React from "react";
-import {
-  follow,
-  unfollow,
-  requestUsers,
-  setCurrentPage,
-  setTotalUsersCount,
-  toggleIsFetching,
-  toggleFollowingInProgress,
-  getUsersOnPageChanged,
-} from "../../redux/users-reduser";
+import { follow, unfollow, requestUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching,
+ toggleFollowingInProgress, getUsersOnPageChanged,} from "../../redux/users-reduser";
 import Users from "./Users";
 import Preloader from "../../Common/Preloader/Preloader";
 import { compose } from "redux";
-import {
-  getUsers,
-  getPageSize,
-  getCurrentPage,
-  getFollowingInProgress,
-  getIsFetching,
-  getToggleFollowingInProgress,
-  getTotalUsersCount,
-} from "../../redux/users-selectors";
+import { getUsers, getPageSize, getCurrentPage, getFollowingInProgress, getIsFetching,
+  getToggleFollowingInProgress, getTotalUsersCount} from "../../redux/users-selectors";
 
 class UsersComponer extends React.Component {
   componentDidMount() {

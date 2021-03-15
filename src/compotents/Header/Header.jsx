@@ -11,7 +11,7 @@ const Header = ({ isAuth, login, logOut }) => {
         <img src={logo} />
       </NavLink>
       <NavLink to="/profile" className={styles.h1}>
-        <h1>IT</h1>
+        <h1> </h1>
         {/* <img src={logoforest} /> */}
         </NavLink>
         {isAuth ? (
