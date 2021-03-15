@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/compotents/Login/Login.module.css"],"names":[],"mappings":"AAAA,mBACE,iBAAkB,CAClB,eACF,CAEA,iBACE,iBACF","file":"4.78db95b8.chunk.css","sourcesContent":[".form{\r\n  padding-left: 50px;\r\n  padding-top: 5px;\r\n}\r\n\r\n.h1{\r\n  padding-left: 50px;\r\n}"]}
